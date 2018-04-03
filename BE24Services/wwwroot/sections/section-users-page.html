@@ -1,0 +1,88 @@
+﻿<div id="blockEditUsers" style="display: none" class="grid_main_section">
+    <div id="usersEditor">
+        <div class="top_bar no_height users">
+            <div class="title">Пользователи</div>
+            <div class="buttons_form_top">
+                <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                <button color="red" class="deleteButton k-button btnCancel btn withIcon red" data-bind="events: { click: remove }">Удалить</button>
+                <button color="green" class="k-button btnBack btn withIcon blue">Обратно</button>
+            </div>
+        </div>
+        <section class="main_users_section">
+            <div class="left_users_section">
+                <div class="central-content_header-filters">
+                    <button class="btn_plus">Добавить</button>
+                    <div class="central-content_header-filters_serch_input">
+                        <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                    </div>
+                </div>
+                <div class="left_content_users">
+                    <div class="usersGrid"></div>
+                </div>
+            </div>
+            <div class="right_users_section">
+                <div class="top_lines_user" style="padding-top: 15px;">
+                        <div class="line_users_data_l">
+                            <label for="user_name_edit">Имя:</label>
+                            <input type="text"
+                                   id="user_name_edit"
+                                   name="user_name_edit"
+                                   placeholder="Имя"
+                                   data-message="<b>Имя</b> - это обязательное поле"
+                                   class="k-textbox"
+                                   maxlength="100"
+                                   data-bind="value: firstName" />
+                        </div>
+                        <div class="line_users_data_l">
+                            <label for="user_family">Фамилия:</label>
+                            <input type="text"
+                                   id="user_family_edit"
+                                   name="user_family_edit"
+                                   placeholder="Фамилия"
+                                   data-message="<b>Фамилия</b> - обязательное поле"
+                                   class="k-textbox"
+                                   maxlength="100"
+                                   data-bind="value: lastName" />
+                        </div>
+                    </div>
+                    <div class="bottom_lines_user">
+                        <div class="line_users_data_l">
+                            <label for="user_email">E-mail:</label>
+                            <input type="email"
+                                    id="user_email_edit"
+                                    name="user_email_edit"
+                                    class="k-textbox"
+                                    placeholder="myname@example.net"
+                                    data-email-msg="<b>Email</b> - неверный формат электронного адреса"
+                                    data-message="<b>Email</b> - обязательное поле"
+                                    maxlength="100"
+                                    data-bind="value: email" />
+                        </div>
+                        <div class="line_users_data_l pass">
+                            <label for="user_password1">Пароль:</label>
+                            <input type="password"
+                                    id="user_password1_edit"
+                                    name="user_password1_edit"
+                                    placeholder="Пароль"
+                                    data-message="<b>Пароль</b> должен содержать не менее 7 символов и не совпадать с логином пользователя"
+                                    class="k-textbox"
+                                    maxlength="100"
+                                    data-bind="value: password1" />
+                        </div>
+                        <div class="line_users_data_l pass">
+                            <label for="user_password2_edit">Подтверждение пароля:</label>
+                            <input type="password"
+                                    id="user_password2_edit"
+                                    name="user_password2"
+                                    placeholder="Пароль"
+                                    data-message="<b>Подтверждение пароля</b> - значение должно совпадать с введенным паролем"
+                                    class="k-textbox"
+                                    maxlength="100"
+                                    data-bind="value: password2" />
+                        </div>
+                    </div>
+                    <div class="usersRole"></div>
+                </div>
+        </section>
+    </div>
+</div>

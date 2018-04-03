@@ -1,0 +1,169 @@
+﻿@model string
+@using System.IO
+@using BE24Services
+@using BE24Services.App_Code
+@using Microsoft.AspNetCore.Html
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test Модуля заявок</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="css/kendo/2017_R1/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/kendo/2017_R1/kendo.mobile.all.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/kendo/2017_R1/kendo.dataviz.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/kendo/2017_R1/kendo.default.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/kendo/2017_R1/kendo.dataviz.default.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="~/lib/leaflet/leaflet.css" rel="stylesheet" />
+    @*<link href="~/lib/leaflet/leaflet.label.css" rel="stylesheet" />*@
+    <link href="~/lib/leaflet/MarkerCluster.css" rel="stylesheet" />
+    <link href="~/lib/leaflet/MarkerCluster.Default.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="images/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link href="css/jgrowl.css" rel="stylesheet"/>
+
+    <script src="~/js/material.min.js"></script>
+    <script src="~/lib/moment.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/kendo/2017_R1/jszip.min.js"></script>
+    <script src="~/lib/kendo/2017_R1/kendo.all.min.js"></script>
+    <script src="~/lib/jquery-jgrowl/jquery.jgrowl.js"></script>
+
+    <script src="~/lib/jquery-file-upload/jquery.ui.widget.js"></script>
+    <script src="~/lib/jquery-file-upload/jquery.iframe-transport.js"></script>
+    <script src="~/lib/jquery-file-upload/jquery.fileupload.js"></script>
+
+    <script src="~/lib/kendo/2017_R1/messages/kendo.messages.ru-RU.min.js"></script>
+    <script src="~/lib/kendo/2017_R1/cultures/kendo.culture.ru-RU.min.js"></script>
+    
+    <script>L_PREFER_CANVAS = true</script>
+    <script src="~/maps/chroma.min.js"></script>
+    <script src="~/lib/leaflet/leaflet.js"></script>
+    <script src="~/lib/leaflet/leaflet.markercluster.js"></script>
+    <script src="~/lib/leaflet/leaflet-image.js"></script>
+    <script src="~/lib/leaflet/leaflet-easyPrint.js"></script>
+    <script src="~/lib/JsPdf/jspdf.debug.js"></script>
+    <script src="~/js/components/kendo.uploadFileList.js"></script>
+
+    <script src="~/js/app.js"></script>
+    <script src="~/js/api.js"></script>
+    <script src="~/js/api.utilites.js"></script>
+    <script src="~/js/api.grid.js"></script>
+    <script src="~/js/api.companies.js"></script>
+    <script src="~/js/api.classifiers.js"></script>
+    <script src="~/js/api.news.js"></script>
+    <script src="~/js/api.urls.js"></script>
+    <script src="~/js/api.tezis.js"></script>
+    <script src="~/js/api.users.js"></script>
+    <script src="~/js/api.reports.js"></script>
+    <script src="~/js/api.reports.diagram.js"></script>
+    <script src="~/js/api.roles.js"></script>
+    <script src="~/js/api.rights.js"></script>
+    <script src="~/js/api.tarif.js"></script>
+
+
+
+    @Html.IncludeFiles("wwwroot/templates/", "*.html")
+
+</head>
+<body id="app" style="display: none">
+<div id="blockScreen"></div>
+
+<section class="wrap">
+    <section class="work">
+        <section class="header">
+            <a href="#" id="header_logo" class="header_logo"></a>
+            <div class="header_title">Test Модуля заявок</div>
+            <ul class="main_header_menu">
+                @*<li>Главная</li>*@
+                <li><a href="Reports/Be24 - Краткое руководство.pdf" target="_blank">Краткое Руководство</a></li>
+                <li><a href="Reports/Be24 - Руководство Пользователя.pdf" target="_blank">Руководство Пользователя</a></li>
+                <li><a href="Reports/Be24 - Презентация.pdf" target="_blank">Презентация</a></li>
+                <li><a href="Reports/Be24 - Политика конфиденциальности.pdf" target="_blank">Политика конфиденциальности</a></li>
+                <li><a href="#">Техническая поддержка</a></li>
+            </ul>
+            <form method="post" id="formLogout" asp-controller="Home" asp-action="LogOut" class="form">
+                <ul class="header_buttons-block">
+                    <li id="butttonUserProfile" class="user"></li>
+                    <li id="buttonLogout" title="Завершение работы" class="logout"></li>
+                </ul>
+            </form>
+        </section>
+        <section class="sidebar" id="leftBlock">
+            <div id="mainMenu">
+                <div class="sidebar_title">Данные</div>
+                <ul class="sidebar_menu dataList">
+                    @*<li id="canReadThesis">
+                        <a href="#" id="tezis_list">
+                            <span class="listItem">База данных BE24</span>
+                        </a>
+                        <button class="add_list" id="add_edit_Tezis" title="Добавить тезисы"></button>
+                    </li>
+                    <li id="canReadCompany">
+                        <a href="#" id="company_list">
+                            <span class="listItem">Профили Компаний</span>
+                        </a>
+                        <button class="add_list" id="add_edit_Company" title="Добавить кампанию"></button>
+                    </li>
+                    <li id="canReadNews">
+                        <a href="#" id="news_list">
+                            <span class="listItem">Новости</span>
+                        </a>
+                        <button class="add_list" id="add_edit_News" title="Добавить новость"></button>
+                    </li>*@
+                    <li id="canReadReport">
+                        <a href="#" id="report_list">
+                            <span class="listItem">Отчеты</span>
+                        </a>
+                    </li>
+                </ul>
+                <div id="canReadClassifier">
+                    <div class="sidebar_title">Классификаторы</div>
+                    <ul id="classifier_list" class="sidebar_menu dataList"></ul>
+                </div>
+                <div id="canReadUsersr">
+                    <div class="sidebar_title">Администрирование</div>
+                    <ul class="sidebar_menu dataList">
+                        <li>
+                            <a href="#" id="users_list">
+                                <span>Пользователи</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="right_list">
+                                <span>Права доступа</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="role_list">
+                                <span>Роли</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="tarif_list">
+                                <span>Тарифы</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="central-content">
+            @RenderBody()
+        </section>
+        <section class="sidebar right" id="rightBlock"></section>
+    </section>
+</section>
+</body>
+</html>
+

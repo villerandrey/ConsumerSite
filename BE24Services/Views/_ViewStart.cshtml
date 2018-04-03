@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    Layout = "_Layout";
+    var userInfo = Context.Session.Get("userInfo");
+    if (userInfo != null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Login.cshtml";
+    }
+}

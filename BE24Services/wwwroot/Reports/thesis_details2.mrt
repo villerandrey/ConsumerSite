@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="1">
+      <BusinessObject Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>BusinessObject</Alias>
+        <BusinessObjects isList="true" count="0" />
+        <Category>buisnes1</Category>
+        <Columns isList="true" count="1">
+          <value>createdate,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Guid>a46966d3cbfe48e496675eda6333590f</Guid>
+        <Name>BusinessObject</Name>
+      </BusinessObject>
+    </BusinessObjects>
+    <Databases isList="true" count="1">
+      <Be24Postgr Ref="3" type="Stimulsoft.Report.Dictionary.StiPostgreSQLDatabase" isKey="true">
+        <Alias>Be24Postgr</Alias>
+        <ConnectionStringEncrypted>49TbCUYN091sW6HAxFzhbtXIU0jGSnukYhWhhWoNqG6EXGnrzVlpyMxNuJh3EPaC0cTdr1UKYcjMEymI6QhiY8Lyd8tiBQGAYhrV2EodO2I=</ConnectionStringEncrypted>
+        <Name>Be24Postgr</Name>
+      </Be24Postgr>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <ds_theses Ref="4" type="Stimulsoft.Report.Dictionary.StiPostgreSQLSource" isKey="true">
+        <Alias>ds_theses</Alias>
+        <Columns isList="true" count="13">
+          <value>catname,System.String</value>
+          <value>created_byuser,System.String</value>
+          <value>createdat,System.String</value>
+          <value>id,System.String</value>
+          <value>objname,System.String</value>
+          <value>removed,System.String</value>
+          <value>swotname,System.String</value>
+          <value>text,System.String</value>
+          <value>thesistext,System.String</value>
+          <value>ucr,System.String</value>
+          <value>updated_byuser,System.String</value>
+          <value>updatedat,System.String</value>
+          <value>uup,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>ds_theses</Name>
+        <NameInSource>Be24Postgr</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT * from sp_get_report_thesisdetails(th_newsid);</SqlCommand>
+      </ds_theses>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="7">
+        <Text2 Ref="6" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3,23.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text2</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>{ds_theses.objname}</Text>
+          <TextBrush>Black</TextBrush>
+        </Text2>
+        <Text4 Ref="7" type="Text" isKey="true">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.8,27.4,1.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Guid>d42cdd922f062e57e28ca074b28e8936</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text4</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>{ds_theses.thesistext}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <TextQuality>Wysiwyg</TextQuality>
+          <Type>Expression</Type>
+        </Text4>
+        <Headerds_theses_razdel Ref="8" type="Text" isKey="true">
+          <Border>None;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+          <Brush>EmptyBrush</Brush>
+          <ClientRectangle>0,2.2,2.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8,Bold</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Headerds_theses_razdel</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>Раздел:</Text>
+          <TextBrush>[10:10:10]</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Headerds_theses_razdel>
+        <Text1 Ref="9" type="Text" isKey="true">
+          <Border>None;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+          <Brush>EmptyBrush</Brush>
+          <ClientRectangle>2.4,2.2,12.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8,Bold</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>{ds_theses.catname}</Text>
+          <TextBrush>[10:10:10]</TextBrush>
+          <VertAlignment>Center</VertAlignment>
+        </Text1>
+        <Text5 Ref="10" type="Text" isKey="true">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Border>None;Black;2;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.4,27.4,12.2</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text5</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>{ds_theses.text}</Text>
+          <TextBrush>[0:0:0]</TextBrush>
+          <TextQuality>Wysiwyg</TextQuality>
+        </Text5>
+        <Text3 Ref="11" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,2.2,0.4</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text3</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>Подробно:</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text3>
+        <Headerds_theses Ref="12" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>Headerds_theses</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <PrintIfEmpty>True</PrintIfEmpty>
+        </Headerds_theses>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>2367f599d02469e8e0ef82d2ef11ad5b</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="13" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="14" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>12/8/2017 2:26:23 PM</ReportChanged>
+  <ReportCreated>1/1/1970 6:00:00 AM</ReportCreated>
+  <ReportFile>D:\DMSol\dm24\reports\thesis_details2.mrt</ReportFile>
+  <ReportGuid>62146a46a98b462d86ca62d122809a60</ReportGuid>
+  <ReportImage isNull="true" />
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2017.2.4.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="1">
+    <Style1 Ref="15" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+      <Brush>Transparent</Brush>
+      <Conditions isList="true" count="0" />
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>[0:0:0]</TextBrush>
+    </Style1>
+  </Styles>
+</StiSerializer>

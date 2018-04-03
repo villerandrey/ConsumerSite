@@ -1,0 +1,205 @@
+﻿div.jGrowl
+{
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    z-index: 100000;
+}
+
+/** Normal Style Positions **/
+
+div.jGrowl
+{
+    position: absolute;
+}
+
+body > div.jGrowl
+{
+    position: fixed
+}
+
+.fontItalic
+{
+    font-style: italic;
+}
+
+div.jGrowl.top-left
+{
+    left: 0;
+    top: 0;
+}
+
+div.jGrowl.top-right
+{
+    right: 0;
+    top: 0;
+}
+
+div.jGrowl.bottom-left
+{
+    bottom: 0;
+    left: 0;
+}
+
+div.jGrowl.bottom-right
+{
+    bottom: 0;
+    right: 0;
+}
+
+div.jGrowl.center
+{
+    left: 25%;
+    top: 0;
+    width: 50%;
+}
+
+/** Cross Browser Styling **/
+
+div.center div.jGrowl-notification,
+div.center div.jGrowl-closer
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.jGrowl div.jGrowl-notification,
+div.jGrowl div.jGrowl-closer
+{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    background-color: #000;
+    display: none;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
+    font-size: 1em;
+    margin-bottom: 5px;
+    margin-top: 0;
+    opacity: .95;
+    padding: 10px;
+    text-align: left;
+    zoom: 1;
+}
+
+div.jGrowl div.jGrowl-notification
+{
+    margin-top: -10px;
+    min-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    width: 500px;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-header
+{
+    font-size: .85em;
+    font-weight: normal;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-close
+{
+    cursor: pointer;
+    float: right;
+    font-size: 1em;
+    font-weight: normal;
+    z-index: 99;
+}
+
+div.jGrowl div.jGrowl-closer
+{
+    cursor: pointer;
+    font-size: .9em;
+    font-weight: normal;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    text-align: center;
+}
+
+div.jGrowl-message
+{
+    line-height: 2;
+    margin: 0 auto;
+    max-width: 360px;
+    text-align: justify !important
+}
+
+div.center div.jGrowl-notification
+{
+    -khtml-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    background-position: 12px center;
+    background-repeat: no-repeat;
+    border-radius: 0 !important;
+}
+
+div.jGrowl-closer
+{
+    background-color: #ECEDED !important;
+    border: solid 1px #aaa;
+    color: #000;
+    padding: 10px 0 !important;
+    width: 520px !important
+}
+
+div.jGrowl-closer:hover
+{
+    background-color: #f4f4f4 !important
+}
+
+._Info_State
+{
+    background-color: #daeaf2 !important;
+    background-image: url('/images/jgrowl/information.png');
+    border: solid 1px #25aae1;
+    color: #000;
+}
+
+._Error_State
+{
+    background-color: #f8d9ce !important;
+    background-image: url('/images/jgrowl/exclamation.png');
+    border: solid 1px #ef3e36;
+    color: #000;
+}
+
+._Warning_State
+{
+    background-color: #f2e4ae !important;
+    background-image: url('/images/jgrowl/error.png');
+    border: solid 1px #f7941e;
+    color: #000;
+}
+
+._Success_State
+{
+    background-color: #eef2cb !important;
+    background-image: url('/images/jgrowl/accept.png');
+    border: solid 1px #b5bf51;
+    color: #000;
+}
+
+._Loading_State
+{
+    background-color: #f1f2f2 !important;
+    background-image: url('/images/jgrowl/ajax-loader.gif');
+    border: solid 1px #25aae1;
+    color: #000;
+}
+
+._Loading_State_single
+{
+    background-color: #f1f2f2 !important;
+    background-image: url('/images/throbber.gif');
+    background-position: right center;
+    background-repeat: no-repeat;
+    border: solid 1px #25aae1;
+    color: #000;
+}
+
+@media print
+{
+    div.jGrowl
+    {
+        display: none;
+    }
+}
+

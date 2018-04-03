@@ -1,0 +1,18 @@
+﻿<div id="blockTezis" style="display: none" class="grid_main_section">
+    <form id="thezisFormGrid">
+        <div class="top_bar">
+            <div class="central-content_title-sprav">База данных BE24</div>
+            <div class="central-content_header-filters">
+                <button class="btn_plus">Добавить</button>
+                <div class="central-content_header-filters_serch_input">
+                    <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                </div>
+                <div class="checkbox">
+                    <input id="check3" type="checkbox" name="check" value="check3" />
+                    <label for="check3">Показать удаленные</label>
+                </div>
+            </div>
+        </div>
+        <div id="thezisCommonGrid" class="kendoGrid"></div>
+    </form>
+</div>

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>MS SQL</Alias>
+        <ConnectionStringEncrypted>9FxpC8ZcQ4VrFfHYyhwlXtFa2YnGXTHVa2kl8GcBsSfDPvctxQPT9UUIpYTDAHfr2XD3SE18We1veI3w5Wx159Ma98vFVwHNc3olOHqQrXuQGMuDYln6bWlJJYDDhGJ7xFiZCchLe91qRJyYaVzrbtXE4YzZX/Nty05l</ConnectionStringEncrypted>
+        <Name>MS SQL</Name>
+      </MS_x0020_SQL>
+    </Databases>
+    <DataSources isList="true" count="3">
+      <DS_DOCUMENTS Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>DS_DOCUMENTS</Alias>
+        <Columns isList="true" count="27">
+          <value>AttachmentSize,System.Int32</value>
+          <value>DOCTYPE_ID,System.Int32</value>
+          <value>LOCKED,System.Byte</value>
+          <value>NUMSEARCH,System.Int32</value>
+          <value>PRUZ,System.Byte</value>
+          <value>REG_DATE,System.DateTime</value>
+          <value>REG_NUM,System.String</value>
+          <value>RegistrationState,System.Byte</value>
+          <value>TomeNum,System.Int32</value>
+          <value>UID,System.Int64</value>
+          <value>SequentialID,System.Int64</value>
+          <value>SourceOfArrival,System.Byte</value>
+          <value>STR_SEARCH,System.String</value>
+          <value>UND,System.String</value>
+          <value>REMARK,System.String</value>
+          <value>SAVE_DATE,System.DateTime</value>
+          <value>OPERATOR_UID,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>DocumentState,System.Int32</value>
+          <value>GlobalProjectNumber,System.String</value>
+          <value>HasArchiveContainer,System.Int16</value>
+          <value>IZD_DATE,System.DateTime</value>
+          <value>KONTROL_ID,System.Int32</value>
+          <value>AUTHOR_UID,System.Int64</value>
+          <value>BARCODE,System.String</value>
+          <value>CORR_DATE,System.DateTime</value>
+          <value>DOC_NUM,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>DS_DOCUMENTS</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from DS_DOCUMENTS</SqlCommand>
+      </DS_DOCUMENTS>
+      <test55 Ref="4" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
+        <Alias>test55</Alias>
+        <Columns isList="true" count="2">
+          <value>Column,System.String</value>
+          <value>Column2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>test55</Name>
+        <NameInSource>test5</NameInSource>
+      </test55>
+      <test444 Ref="5" type="Stimulsoft.Report.Dictionary.StiUserSource" isKey="true">
+        <Alias>test444</Alias>
+        <Columns isList="true" count="1">
+          <value>Column,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>test444</Name>
+        <NameInSource>test4</NameInSource>
+      </test444>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <DataDS_DOCUMENTS Ref="7" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <DataDS_DOCUMENTS_DOCTYPE_ID Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,6.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDS_DOCUMENTS_DOCTYPE_ID</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{DS_DOCUMENTS.DOCTYPE_ID}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDS_DOCUMENTS_DOCTYPE_ID>
+            <DataDS_DOCUMENTS_REG_NUM Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.4,0,6.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDS_DOCUMENTS_REG_NUM</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{DS_DOCUMENTS.REG_NUM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDS_DOCUMENTS_REG_NUM>
+            <DataDS_DOCUMENTS_NAME Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12.8,0,6.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDS_DOCUMENTS_NAME</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{DS_DOCUMENTS.NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDS_DOCUMENTS_NAME>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <CountData>10</CountData>
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataDS_DOCUMENTS</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataDS_DOCUMENTS>
+        <DataBand1 Ref="11" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2,19,2.6</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>test444</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>9f8c986198284752b404e1128e93623c</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="12" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PreviewSettings>268435455</PreviewSettings>
+  <PrinterSettings Ref="13" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>5/5/2017 4:06:51 PM</ReportChanged>
+  <ReportCreated>5/5/2017 3:48:41 PM</ReportCreated>
+  <ReportFile>C:\Users\viller.ESED\Documents\Report.mrt</ReportFile>
+  <ReportGuid>f1b8e5d67c8b42c989bde07595256034</ReportGuid>
+  <ReportImage isNull="true" />
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2016.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

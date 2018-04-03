@@ -1,0 +1,81 @@
+﻿<script type="text/x-template" id="grid-tezis-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th><div>Создано</div></th>
+                    <th><div @click="sortBy('categoryName')"
+                                :class="{ active: sortKey == 'categoryName' }">
+                            Категория
+                        <span class="arrow" :class="sortOrders['categoryName'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('swotIndicatorsystemcode')"
+                                :class="{ active: sortKey == 'swotIndicatorsystemcode' }">
+                            Индикатор
+                        <span class="arrow" :class="sortOrders['swotIndicatorsystemcode'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('companySectorValue')"
+                                :class="{ active: sortKey == 'companySectorValue' }">
+                            Отрасль компании
+                        <span class="arrow" :class="sortOrders['companySectorValue'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('company')"
+                                :class="{ active: sortKey == 'company' }">
+                            Компания
+                        <span class="arrow" :class="sortOrders['company'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('companyRegion')"
+                                :class="{ active: sortKey == 'companyRegion' }">
+                            Регион компании
+                        <span class="arrow" :class="sortOrders['companyRegion'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('theme')"
+                                :class="{ active: sortKey == 'theme' }">
+                            Тема
+                        <span class="arrow" :class="sortOrders['theme'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('thesisText')"
+                                :class="{ active: sortKey == 'thesisText' }">
+                            Эксперт
+                        <span class="arrow" :class="sortOrders['thesisText'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('section')"
+                                :class="{ active: sortKey == 'section' }">
+                            Раздел
+                        <span class="arrow" :class="sortOrders['section'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('countryName')"
+                                :class="{ active: sortKey == 'countryName' }">
+                            Страна проекта
+                        <span class="arrow" :class="sortOrders['countryName'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>                    
+                    <th><div @click="sortBy('createdByUserName')"
+                                :class="{ active: sortKey == 'createdByUserName' }">
+                            Создал
+                        <span class="arrow" :class="sortOrders['createdByUserName'] > 0 ? 'asc' : 'dsc'"></span>
+                    </div></th>
+                    <th><div>Дата изм.</div></th>
+                    <th>
+                        <div @click="sortBy('updatedByUserName')"
+                             :class="{ active: sortKey == 'updatedByUserName' }">
+                            Изменил
+                            <span class="arrow" :class="sortOrders['updatedByUserName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('id')"
+                             :class="{ active: sortKey == 'id' }">
+                            ID
+                            <span class="arrow" :class="sortOrders['id'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData" @click="selectEntry(entry)" style="cursor: pointer">
+                    <td v-for="key in columns"><div v-html="entry[key]"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

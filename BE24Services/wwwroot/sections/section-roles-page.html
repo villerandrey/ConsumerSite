@@ -1,0 +1,51 @@
+﻿<div id="blockRoles" style="display: none" class="grid_main_section">
+    <div id="usersRoles">
+        <div class="top_bar no_height users">
+            <div class="title">Роли пользователей</div>
+            <div class="buttons_form_top">
+                <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                <button color="red" class="deleteButton k-button btnCancel btn withIcon red" data-bind="events: { click: remove }">Удалить</button>
+                <button color="green" class="k-button btnBack btn withIcon blue">Назад</button>
+            </div>
+        </div>
+            <section class="main_users_section">
+                <div class="left_users_section">
+                    <div class="central-content_header-filters">
+                        <button class="btn_plus">Добавить</button>
+                        <div class="central-content_header-filters_serch_input">
+                            <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                        </div>
+                    </div>
+                    <div class="left_content_users">
+                        <div class="roleGrid"></div>
+                    </div>
+                </div>
+                <div class="right_users_section">
+                        <div class="top_lines_user">
+                            <div class="line_users_data_l">
+                                <label for="role_name_edit">Имя роли:</label>
+                                <input type="text"
+                                       id="role_name_edit"
+                                       name="role_name_edit"
+                                       placeholder="Имя роли"
+                                       data-message="<b>Имя роли</b> - поле должно быть заполнено"
+                                       class="k-textbox"
+                                       maxlength="100"
+                                       data-bind="value: name" />
+                            </div>
+                            <div class="line_users_data_l">
+                                <label for="role_remark_edit">Описание роли:</label>
+                                <input type="text"
+                                       id="role_remark_edit"
+                                       name="role_remark_edit"
+                                       placeholder="Описание роли"
+                                       class="k-textbox"
+                                       maxlength="100"
+                                       data-bind="value: remark" />
+                            </div>
+                        </div>
+                        <div class="rightGrig"></div>
+                    </div>
+            </section>
+    </div>
+</div>

@@ -1,0 +1,196 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Business Expert 24</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="lib/jquery/dist/jquery.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/app.js"></script>
+  <script type="text/x-template" id="demo-template">
+    <div>
+      <!-- <p>Selected: {{ selected }}</p> -->
+      <select2 :options="options" v-model="selected">
+        <option disabled value="0"></option>
+      </select2>
+    </div>
+  </script>
+  <script type="text/x-template" id="select2-template">
+    <select>
+      <slot></slot>
+    </select>
+  </script>
+</head>
+<body>
+	<section class="wrap">
+		<section class="work">
+      <section class="header">
+        <a href="/" class="header_logo"></a>
+        <div class="header_title">Business Expert 24</div>
+        <ul class="header_buttons-block">
+          <li class="user"></li>
+          <li class="logout"></li>
+        </ul>
+      </section>
+      <section class="sidebar">
+        <div class="sidebar_title">Данные</div>
+        <ul class="sidebar_menu">
+          <li class="active"><a href="/tezispage.html"><span>Тезисы</span></a>
+    <a href="/tezis.html"><button class="add_list" title="Добавить кампанию"></button></a>
+</li>
+          <li><a href="/company.html"><span>Компании</span></a>
+            <button class="add_list" title="Добавить кампанию"></button>
+          </li>
+          <li><span>Новости</span>
+            <button class="add_list" title="Добавить новость"></button>
+          </li>
+        </ul>
+        <div class="sidebar_title">Классификаторы</div>
+        <ul class="sidebar_menu">
+          <li><span>Отрасли</span></li>
+          <li><span>Рынки</span></li>
+          <li><span>Спрос</span></li>
+          <li><span>Параметры</span></li>
+        </ul>
+        <div class="sidebar_title">Администрирование</div>
+        <ul class="sidebar_menu">
+          <li><span>Пользователи</span></li>
+          <li><span>Права доступа</span></li>
+          <li><span>Роли</span></li>
+        </ul>
+      </section>
+      <section class="central-content without-rifgt-sidebar">
+          <div class="top_bar">
+            <div class="half-top-bar">
+              <div class="central-content_title-sprav">Добавление / редактирование тезиса</div>
+              <ul class="rules-buttons">
+                <li class="cancel">Отмена</li>
+                <li class="save">Сохранить</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-inputs">
+            <div class="line-input">
+              <div class="title-input">id:</div>
+              <div class="value-input">хххх</div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Дата:</div>
+              <div class="value-input">10.03.2017     10:58</div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Пользователь:</div>
+              <div class="value-input">Вася Пупкин</div>
+            </div>
+            <div class="line-input vertical-title">
+              <div class="title-input">Формулировка тезиса:</div>
+              <textarea class="textarea"></textarea>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Категория:</div>
+              <div class="autocomplit">
+                <div class="btn_select"></div>
+                <input class="input" type="text" />
+                <ul class="list_panel">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">SWOT индикатор:</div>
+              <div class="autocomplit">
+                <div class="btn_select"></div>
+                <input class="input" type="text" />
+                <ul class="list_panel">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-input point-type">
+              <div class="title-input">Объект:</div>
+              <div class="object-input">
+                <div class="btn_object"></div>
+                <input class="input" type="text" />
+              </div>
+            </div>
+            <div class="line-input point-type">
+              <div class="title-input"><b>Тема</b></div>
+            </div>
+            <div class="line-input otrasl">
+              <div class="title-input">Отрасль:</div>
+              <div class="object-input">
+                <div class="btn_object"></div>
+                <input class="input" type="text" />
+              </div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Рынок:</div>
+              <div class="object-input">
+                <div class="btn_object"></div>
+                <input class="input" type="text" />
+              </div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Спрос:</div>
+              <div class="object-input">
+                <div class="btn_object"></div>
+                <input class="input" type="text" />
+              </div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Раздел:</div>
+              <div class="autocomplit">
+                <div class="btn_select"></div>
+                <input class="input" type="text" />
+                <ul class="list_panel">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Параметр:</div>
+              <div class="autocomplit">
+                <div class="btn_select"></div>
+                <input class="input" type="text" />
+                <ul class="list_panel">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                  <li>2</li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-input">
+              <div class="title-input">Гео:</div>
+              <input type="text" class="input" />
+            </div>
+          </div>
+      </section>
+		</section>
+	</section>
+</body>
+</html>

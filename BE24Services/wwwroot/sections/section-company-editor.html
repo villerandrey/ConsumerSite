@@ -1,0 +1,149 @@
+﻿<div id="blockEditCompany" style="display: none" class="grid_main_section">
+    <div id="editorCompany">
+        <div class="confirmDialog"></div>
+        <div class="top_bar no_height">
+            <div class="form_section">
+                <div class="central-content_title-sprav widtauto">Добавление / редактирование компании</div>
+                <div class="buttons_form_top">
+                    <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                    <button color="red" class="deleteButton k-button btnCancel btn withIcon red" data-bind="events: { click: remove }">Удалить</button>
+                    <button color="green" class="k-button btnBack btn withIcon blue" data-bind="events: { click: cancel }">Закрыть</button>
+                </div>
+            </div>
+        </div>
+        <div class="editor_company_section">
+            <div class="form_section">
+                <label for="company_fullname">Полное название компании:</label>
+                <input type="text"
+                       id="company_fullname"
+                       name="company_fullname"
+                       data-message="<b>Полное название компании</b> - поле должно быть заполнено"
+                       class="k-textbox"
+                       maxlength="300"
+                       data-bind="value: fullname"/>
+                <label for="company_shortname">Краткое название компании:</label>
+                <input type="text"
+                       id="company_shortname"
+                       name="company_shortname"
+                       data-message="<b>Краткое название компании</b> - поле должно быть заполнено"
+                       class="k-textbox"
+                       maxlength="300"
+                       data-bind="value: shortname"/>
+                <label for="company_description">Описание:</label>
+                <textarea class="k-textbox" 
+                      id="company_description"
+                      rows="5"
+                      name="company_description"
+                      data-bind="value: description"
+                      maxlength="2048"></textarea>
+                <label for="company_systemcode">Код:</label>
+                <input type="text"
+                       id="company_systemcode"
+                       name="company_systemcode"
+                       readonly
+                       class="k-textbox"
+                       maxlength="64"
+                       data-bind="value: systemcode"/>
+                <label for="company_sector">Отрасль:</label>
+                <select data-role="dropdownlist"
+                        id="company_sector"
+                        name="company_sector"
+                        data-message="<b>Отрасль</b> - поле должно быть заполнено"
+                        data-value-field="id"
+                        data-text-field="name"
+                        data-auto-bind="false"
+                        data-filter="contains"
+                        data-bind="value: sector, source: industries"
+                        style="width: 100%"></select>
+                <label for="company_country">Страна:</label>
+                <select data-role="dropdownlist"
+                        id="company_country"
+                        name="company_country"
+                        data-message="<b>Страна</b> - поле должно быть заполнено"
+                        data-value-field="id"
+                        data-text-field="name"
+                        data-filter="contains"
+                        data-auto-bind="false"
+                        data-bind="value: country, source: countries"
+                        style="width: 100%"></select>
+                <div class="regionrf">
+                    <label for="company_regionrf">Регион РФ:</label>
+                    <select data-role="dropdownlist"
+                            id="company_regionrf"
+                            name="company_regionrf"
+                            data-value-field="id"
+                            data-text-field="name"
+                            data-filter="contains"
+                            data-auto-bind="false"
+                            data-bind="value: regionrf, source: regions" style="width: 100%"></select>
+                </div>
+                <label for="company_legaladdress">Юридический адрес:</label>
+                <input type="text"
+                       id="company_legaladdress"
+                       name="company_legaladdress"
+                       maxlength="512"
+                       class="k-textbox"
+                       data-message="<b>Юридический адрес</b> - поле должно быть заполнено"
+                       data-bind="value: legaladdress"/>
+                <label for="company_factaddress">Фактический адрес:</label>
+                <input type="text"
+                       id="company_factaddress"
+                       name="company_factaddress"
+                       maxlength="512"
+                       class="k-textbox"
+                       data-bind="value: factaddress"/>
+                <div class="childs4">
+                    <div>
+                        <label>ОГРН:</label>
+                        <input data-role="maskedtextbox"
+                               maxlength="13"
+                               data-message="<b>ОГРН</b> - поле дожно быть пустым или содержать 13 цифр"
+                               data-bind="value: ogrn, mask: mask13"/>
+                    </div>
+                    <div>
+                        <label for="company_inn">ИНН:</label>
+                        <input data-role="maskedtextbox"
+                               id="company_inn"
+                               name="company_inn"
+                               maxlength="12"
+                               data-message="<b>ИНН</b> - поле дожно содержать 10 или 12 цифр"
+                               data-bind="value: inn, mask: mask12"/>
+                    </div>
+                    <div>
+                        <label for="company_kpp">КПП:</label>
+                        <input data-role="maskedtextbox"
+                               id="company_kpp"
+                               name="company_kpp"
+                               maxlength="9"
+                               data-message="<b>КПП</b> - поле дожно быть пустым или содержать 9 цифр"
+                               data-bind="value: kpp, mask: mask09"/>
+                    </div>
+                    <div>
+                        <label for="company_okpo">ОКПО:</label>
+                        <input data-role="maskedtextbox"
+                               id="company_okpo"
+                               name="company_okpo"
+                               maxlength="10"
+                               data-message="<b>ОКПО</b> - поле дожно быть пустым или содержать 13 цифр"
+                               data-bind="value: okpo, mask: mask10"/>
+                    </div>
+                </div>
+                <label for="company_managernames">Фамилия, имя и отчество руководителей:</label>
+                <input type="text"
+                       id="company_managernames"
+                       name="company_managernames"
+                       class="k-textbox"
+                       maxlength="128"
+                       data-bind="value: managersNames"/>
+                <label for="company_ownernames">Фамилия, имя и отчество собственников:</label>
+                <input type="text"
+                       id="company_ownernames"
+                       name="company_ownernames"
+                       class="k-textbox"
+                       maxlength="128"
+                       data-bind="value: ownersNames"/>
+            </div>
+        </div>
+    </div>
+</div>
+

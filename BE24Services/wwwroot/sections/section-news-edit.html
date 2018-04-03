@@ -1,0 +1,70 @@
+﻿<div id="blockEditNews" style="display: none" class="grid_main_section">
+    <div id="editorNews">
+        <div class="confirmDialog"></div>
+        <div class="top_bar no_height">
+            <div class="form_section">
+                <div class="central-content_title-sprav widtauto">Добавление / редактирование компании</div>
+                <div class="buttons_form_top">
+                    <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                    <button color="red" class="deleteButton k-button btnCancel btn withIcon red" data-bind="events: { click: remove }">Удалить</button>
+                    <button color="green" class="k-button btnBack btn withIcon blue" data-bind="events: { click: cancel }">Закрыть</button>
+                </div>
+            </div>
+        </div>
+        <div class="editor_company_section">
+            <div class="form_section">
+                
+                    <div>
+                        <label for="news_id">ID:</label>
+                        <input type="text"
+                               id="news_id"
+                               name="news_id"
+                               readonly
+                               class="k-textbox"
+                               maxlength="64"
+                               data-bind="value: id" />
+                    </div>
+                    <div>
+                        <label for="news_createdAtStr">Дата:</label>
+                        <input type="text"
+                               id="news_createdAtStr"
+                               name="thezis_createdAtStr"
+                               readonly
+                               class="k-textbox"
+                               maxlength="64"
+                               data-bind="value: createdAt" />
+                    </div>
+                    <div class="line-input">
+                        <label for="news_newsText">Текст новости:</label>
+                        <textarea class="k-textbox"
+                                  id="news_newsText"
+                                  name="news_newsText"
+                                  data-message="<b>Текст новости</b> - поле должно быть заполнено"
+                                  data-bind="value: newsText"
+                                  maxlength="102400"></textarea>
+                    </div>
+                    <div class="line_uploads">
+                        <div class="files_field">
+                            <div class="title">
+                                <span>Файлы:</span>
+                            </div>
+                            <div class="fileUpload"></div>
+                        </div>
+                    </div>
+                
+                
+                <div class="top_bar no_height topmargin">
+                    <div class="form_section">
+                        <div class="title_sub_news">Тезисы новости</div>
+                        <div class="buttons_form_top">
+                            <button class="k-button btn green btn_plus news_add" data-bind="events: { click: addTezisToNews }">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="thezisNewsGrid" class="table_section news">
+                    <div class="kendoGrid" style="margin-top: 0px;"></div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>

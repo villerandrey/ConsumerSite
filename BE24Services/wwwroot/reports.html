@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Business Expert 24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+</head>
+<body class="testpage">
+<section class="wrap">
+    <section class="work">
+        <section class="header">
+            <a href="/" class="header_logo"></a>
+            <div class="header_title">Business Expert 24</div>
+            <ul class="header_buttons-block">
+                <li class="user"></li>
+                <li class="logout"></li>
+            </ul>
+        </section>
+        <div id="ReportsSection">
+            <div class="setkaSection">
+                <div class="boxReport topLeft">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+                <div class="boxReport topRight">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+                <div class="boxReport bottomLeftTop">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+                <div class="boxReport bottomLeftBottom">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+                <div class="boxReport bottomRightTop">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+                <div class="boxReport bottomRightBottom">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+                <div class="boxReport bottomRight">
+                    <div class="btnResize"></div>
+                    <div class="contentReport"></div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('.btnResize').on('click', function () {
+                        $(this).parent().toggleClass('FullSize');
+                        $('.contentReport').toggleClass('small');
+                    });
+                });
+            </script>
+        </div>
+    </section>
+</section>
+</body>
+</html>

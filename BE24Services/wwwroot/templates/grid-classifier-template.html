@@ -1,0 +1,46 @@
+﻿<script type="text/x-template" id="grid-classifier-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <div @click="sortBy('id')"
+                             :class="{ active: sortKey == 'id' }">
+                            ID
+                            <span class="arrow" :class="sortOrders['id'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('name')"
+                             :class="{ active: sortKey == 'name' }">
+                            Наименование
+                            <span class="arrow" :class="sortOrders['name'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('systemname')"
+                             :class="{ active: sortKey == 'systemname' }">
+                            Код
+                            <span class="arrow" :class="sortOrders['systemname'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div id="renameColumn" @click="sortBy('description')"
+                             :class="{ active: sortKey == 'description' }">
+                            Комментарий
+                            <span class="arrow" :class="sortOrders['description'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th><div><div class="icon_th"></div></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData">
+                    <td v-for="key in columns">
+                        <div v-html="entry[key]"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

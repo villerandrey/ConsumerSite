@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Business Expert 24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/jgrowl.css" rel="stylesheet" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/kendo/2017_R1/jszip.min.js"></script>
+    <script src="lib/kendo/2017_R1/kendo.all.min.js"></script>
+    <script src="lib/jquery-jgrowl/jquery.jgrowl.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/api.utilites.js"></script>
+    <script src="js/api.urls.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+    /*
+    var russia = [];
+    russia[1] = { key: 1, name: 'Адыгея', id: 501 };
+    russia[3] = { key: 3, name: 'Башкортостан', id: 502 };
+    russia[4] = { key: 4, name: 'Бурятия', id: 503 };
+    russia[2] = { key: 2, name: 'Алтай', id: 504 };
+    russia[5] = { key: 5, name: 'Дагестан', id: 505 };
+    russia[6] = { key: 6, name: 'Ингушетия', id: 506 };
+    russia[7] = { key: 7, name: 'Кабардино-Балкария', id: 507 };
+    russia[8] = { key: 8, name: 'Калмыкия', id: 508 };
+    russia[9] = { key: 9, name: 'Карачаево-Черкесия', id: 509 };
+    russia[10] = { key: 10, name: 'Карелия', id: 510 };
+    russia[11] = { key: 11, name: 'Коми', id: 511 };
+    russia[13] = { key: 13, name: 'МарийЭл', id: 512 };
+    russia[14] = { key: 14, name: 'Мордовия', id: 513 };
+    russia[15] = { key: 15, name: 'Саха(Якутия)', id: 514 };
+    russia[16] = { key: 16, name: 'Северная Осетия—Алания', id: 515 };
+    russia[17] = { key: 17, name: 'Татарстан', id: 516 };
+    russia[18] = { key: 18, name: 'Тыва(Тува)', id: 517 };
+    russia[19] = { key: 19, name: 'Удмуртия', id: 518 };
+    russia[20] = { key: 20, name: 'Хакасия', id: 519 };
+    russia[22] = { key: 22, name: 'Чувашия', id: 520 };
+    russia[23] = { key: 23, name: 'Алтайскийкрай', id: 521 };
+    russia[26] = { key: 26, name: 'Краснодарский край', id: 522 };
+    russia[27] = { key: 27, name: 'Красноярский край', id: 523 };
+    russia[29] = { key: 29, name: 'Приморский край', id: 524 };
+    russia[30] = { key: 30, name: 'Ставропольский край', id: 525 };
+    russia[31] = { key: 31, name: 'Хабаровский край', id: 526 };
+    russia[32] = { key: 32, name: 'Амурская область', id: 527 };
+    russia[33] = { key: 33, name: 'Архангельская область', id: 528 };
+    russia[34] = { key: 34, name: 'Астраханская область', id: 529 };
+    russia[35] = { key: 35, name: 'Белгородская область', id: 530 };
+    russia[36] = { key: 36, name: 'Брянская область', id: 531 };
+    russia[37] = { key: 37, name: 'Владимирская область', id: 532 };
+    russia[38] = { key: 38, name: 'Волгоградская область', id: 533 };
+    russia[39] = { key: 39, name: 'Вологодская область', id: 534 };
+    russia[40] = { key: 40, name: 'Воронежская область', id: 535 };
+    russia[41] = { key: 41, name: 'Ивановская область', id: 536 };
+    russia[42] = { key: 42, name: 'Иркутская область', id: 537 };
+    russia[43] = { key: 43, name: 'Калининградская область', id: 538 };
+    russia[44] = { key: 44, name: 'Калужская область', id: 539 };
+    russia[25] = { key: 25, name: 'Камчатский край', id: 540 };
+    russia[45] = { key: 45, name: 'Кемеровская область', id: 541 };
+    russia[46] = { key: 46, name: 'Кировская область', id: 542 };
+    russia[47] = { key: 47, name: 'Костромская область', id: 543 };
+    russia[48] = { key: 48, name: 'Курганская область', id: 544 };
+    russia[49] = { key: 49, name: 'Курская область', id: 545 };
+    russia[50] = { key: 50, name: 'Ленинградская область', id: 546 };
+    russia[51] = { key: 51, name: 'Липецкая область', id: 547 };
+    russia[52] = { key: 52, name: 'Магаданская область', id: 548 };
+    russia[53] = { key: 53, name: 'Московская область', id: 549 };
+    russia[54] = { key: 54, name: 'Мурманская область', id: 550 };
+    russia[55] = { key: 55, name: 'Нижегородская область', id: 551 };
+    russia[56] = { key: 56, name: 'Новгородская область', id: 552 };
+    russia[57] = { key: 57, name: 'Новосибирская область', id: 553 };
+    russia[58] = { key: 58, name: 'Омская область', id: 554 };
+    russia[59] = { key: 59, name: 'Оренбургская область', id: 555 };
+    russia[60] = { key: 60, name: 'Орловская область', id: 556 };
+    russia[61] = { key: 61, name: 'Пензенская область', id: 557 };
+    russia[28] = { key: 28, name: 'Пермскийкрай', id: 558 };
+    russia[62] = { key: 62, name: 'Псковская область', id: 559 };
+    russia[63] = { key: 63, name: 'Ростовская область', id: 560 };
+    russia[64] = { key: 64, name: 'Рязанская область', id: 561 };
+    russia[65] = { key: 65, name: 'Самарская область', id: 562 };
+    russia[66] = { key: 66, name: 'Саратовская область', id: 563 };
+    russia[67] = { key: 67, name: 'Сахалинская область', id: 564 };
+    russia[68] = { key: 68, name: 'Свердловская область', id: 565 };
+    russia[69] = { key: 69, name: 'Смоленская область', id: 566 };
+    russia[70] = { key: 70, name: 'Тамбовская область', id: 567 };
+    russia[71] = { key: 71, name: 'Тверская область', id: 568 };
+    russia[72] = { key: 72, name: 'Томская область', id: 569 };
+    russia[73] = { key: 73, name: 'Тульская область', id: 570 };
+    russia[74] = { key: 74, name: 'Тюменская область', id: 571 };
+    russia[75] = { key: 75, name: 'Ульяновская область', id: 572 };
+    russia[76] = { key: 76, name: 'Челябинская область', id: 573 };
+    russia[24] = { key: 24, name: 'Забайкальский край', id: 574 };
+    russia[77] = { key: 77, name: 'Ярославская область', id: 575 };
+    russia[99] = { key: 99, name: 'Москва', id: 576 };
+    russia[79] = { key: 79, name: 'Санкт-Петербург', id: 577 };
+    russia[81] = { key: 81, name: 'ЕврейскаяАО', id: 578 };
+    russia[83] = { key: 83, name: 'Ханты-Мансийский АО—Югра', id: 579 };
+    russia[82] = { key: 82, name: 'Ненецкий АО', id: 580 };
+    russia[84] = { key: 84, name: 'Чукотский АО', id: 582 };
+    russia[85] = { key: 85, name: 'Ямало-Ненецкий АО', id: 583 };
+    russia[21] = { key: 21, name: 'Чечня', id: 585 };
+    russia[12] = { key: 12, name: 'Крым', id: 589 };
+    russia[80] = { key: 80, name: 'Севастополь', id: 590 };
+
+    $.getJSON("../maps/russia.geo.json").done(function(russiaMap, status) {
+        document.write('Russia<br/>');
+
+        function getDeferredArray() {
+            var deferreds = [];
+            $.each(russiaMap.features,
+                function(index, feature) {
+                    var id = feature.properties.ID_1;
+                    if (russia[id]) {
+
+                        var saveData = russia[id];
+                        saveData.color = '#color#';
+                        saveData.text = '#text#';
+                        saveData.remark = '#remark#'; 
+
+                        var saveFeature = {
+                            "type": "Feature",
+                            "properties": saveData,
+                            "geometry": feature.geometry
+                        }
+                        deferreds.push(api.post(api.url.addGeodata,
+                        {
+                            psysname: '',
+                            pjsonformat: JSON.stringify(saveFeature),
+                            pclassid: russia[id].id
+                        }).done(function(ret) {
+                            document.write("Обработка " + russia[id].name + '<br/>');
+                        }));
+                    }
+                });
+            return (deferreds);
+        }
+        var deferreds = getDeferredArray();
+        $.when.apply(null, deferreds).done(function () {
+        });
+    });
+
+    var countries = {};
+    countries.AU = { key: 330001, name: 'Австралия', id: 'AU' };
+    countries.AT = { key: 330002, name: 'Австрия', id: 'AT' };
+    countries.AZ = { key: 330003, name: 'Азербайджан', id: 'AZ' };
+    countries.AL = { key: 330004, name: 'Албания', id: 'AL' };
+    countries.DZ = { key: 330005, name: 'Алжир', id: 'DZ' };
+    countries.AS = { key: 330006, name: 'Американское Самоа', id: 'AS' };
+    countries.AI = { key: 330007, name: 'Ангилья', id: 'AI' };
+    countries.AO = { key: 330008, name: 'Ангола', id: 'AO' };
+    countries.AD = { key: 330009, name: 'Андорра', id: 'AD' };
+    countries.AQ = { key: 330010, name: 'Антарктида', id: 'AQ' };
+    countries.AG = { key: 330011, name: 'Антигуа и Барбуда', id: 'AG' };
+    countries.AR = { key: 330012, name: 'Аргентина', id: 'AR' };
+    countries.AM = { key: 330014, name: 'Армения', id: 'AM' };
+    countries.AW = { key: 330015, name: 'Аруба', id: 'AW' };
+    countries.AF = { key: 330016, name: 'Афганистан', id: 'AF' };
+    countries.BS = { key: 330017, name: 'Багамы', id: 'BS' };
+    countries.BD = { key: 330018, name: 'Бангладеш', id: 'BD' };
+    countries.BB = { key: 330019, name: 'Барбадос', id: 'BB' };
+    countries.BH = { key: 330020, name: 'Бахрейн', id: 'BH' };
+    countries.BY = { key: 330021, name: 'Белоруссия', id: 'BY' };
+    countries.BZ = { key: 330022, name: 'Белиз', id: 'BZ' };
+    countries.BE = { key: 330023, name: 'Бельгия', id: 'BE' };
+    countries.BJ = { key: 330024, name: 'Бенин', id: 'BJ' };
+    countries.BM = { key: 330025, name: 'Бермуды', id: ' BM' };
+    countries.BG = { key: 330026, name: 'Болгария', id: 'BG' };
+    countries.BO = { key: 330027, name: 'Боливия', id: 'BO' };
+    countries.BQ = { key: 330028, name: 'Бонэйр, Синт-Эстатиус и Саба', id: ' BQ' };
+    countries.BA = { key: 330029, name: 'Босния и Герцеговина', id: 'BA' };
+    countries.BW = { key: 330030, name: 'Ботсвана', id: 'BW' };
+    countries.BR = { key: 330031, name: 'Бразилия', id: 'BR' };
+    countries.IO = { key: 330032, name: 'Британская территория в Индийском океане', id: 'IO ' };
+    countries.BN = { key: 330033, name: 'Бруней', id: 'BN' };
+    countries.BF = { key: 330034, name: 'Буркина-Фасо', id: 'BF' };
+    countries.BI = { key: 330035, name: 'Бурунди', id: 'BI' };
+    countries.BT = { key: 330036, name: 'Бутан', id: 'BT' };
+    countries.VU = { key: 330037, name: 'Вануату', id: 'VU' };
+    countries.GB = { key: 330038, name: 'Великобритания', id: 'GB' };
+    countries.HU = { key: 330039, name: 'Венгрия', id: 'HU' };
+    countries.VE = { key: 330040, name: 'Венесуэла', id: 'VE' };
+    countries.VG = { key: 330041, name: 'Виргинские Острова (Великобритания)', id: 'VG' };
+    countries.VI = { key: 330042, name: 'Виргинские Острова (США)', id: 'VI' };
+    countries.VN = { key: 330043, name: 'Вьетнам', id: 'VN' };
+    countries.GA = { key: 330044, name: 'Габон', id: 'GA' };
+    countries.HT = { key: 330045, name: 'Гаити', id: 'HT' };
+    countries.GY = { key: 330046, name: 'Гайана', id: 'GY' };
+    countries.GM = { key: 330047, name: 'Гамбия', id: 'GM' };
+    countries.GH = { key: 330048, name: 'Гана', id: 'GH' };
+    countries.GP = { key: 330049, name: 'Гваделупа', id: 'GP' };
+    countries.GT = { key: 330050, name: 'Гватемала', id: 'GT' };
+    countries.GN = { key: 330051, name: 'Гвинея', id: 'GN' };
+    countries.GW = { key: 330052, name: 'Гвинея-Бисау', id: 'GW' };
+    countries.DE = { key: 330053, name: 'Германия', id: 'DE' };
+    countries.GG = { key: 330054, name: 'Гернси', id: 'GG' };
+    countries.GI = { key: 330055, name: 'Гибралтар', id: 'GI' };
+    countries.HN = { key: 330056, name: 'Гондурас', id: 'HN' };
+    countries.HK = { key: 330057, name: 'Гонконг', id: 'HK' };
+    countries.GD = { key: 330058, name: 'Гренада', id: 'GD' };
+    countries.GL = { key: 330059, name: 'Гренландия', id: 'GL' };
+    countries.GR = { key: 330060, name: 'Греция', id: 'GR' };
+    countries.GE = { key: 330061, name: 'Грузия', id: 'GE' };
+    countries.GU = { key: 330062, name: 'Гуам', id: 'GU' };
+    countries.DK = { key: 330063, name: 'Дания', id: 'DK' };
+    countries.JE = { key: 330064, name: 'Джерси', id: 'JE' };
+    countries.DJ = { key: 330065, name: 'Джибути', id: 'DJ' };
+    countries.DM = { key: 330066, name: 'Доминика', id: 'DM' };
+    countries.DO = { key: 330067, name: 'Доминиканская Республика', id: 'DO' };
+    countries.EG = { key: 330068, name: 'Египет', id: 'EG' };
+    countries.ZM = { key: 330069, name: 'Замбия', id: 'ZM' };
+    countries.ZW = { key: 330070, name: 'Зимбабве', id: 'ZW' };
+    countries.IL = { key: 330071, name: 'Израиль', id: 'IL' };
+    countries.IN = { key: 330072, name: 'Индия', id: 'IN' };
+    countries.ID = { key: 330073, name: 'Индонезия', id: 'ID' };
+    countries.JO = { key: 330074, name: 'Иордания', id: 'JO' };
+    countries.IQ = { key: 330075, name: 'Ирак', id: 'IQ' };
+    countries.IR = { key: 330076, name: 'Иран', id: 'IR' };
+    countries.IE = { key: 330077, name: 'Ирландия', id: 'IE' };
+    countries.IS = { key: 330078, name: 'Исландия', id: 'IS' };
+    countries.ES = { key: 330079, name: 'Испания', id: 'ES' };
+    countries.IT = { key: 330080, name: 'Италия', id: 'IT' };
+    countries.YE = { key: 330081, name: 'Йемен', id: 'YE' };
+    countries.CV = { key: 330082, name: 'Кабо-Верде', id: 'CV' };
+    countries.KZ = { key: 330083, name: 'Казахстан', id: 'KZ' };
+    countries.KH = { key: 330084, name: 'Камбоджа', id: 'KH' };
+    countries.CM = { key: 330085, name: 'Камерун', id: 'CM' };
+    countries.CA = { key: 330086, name: 'Канада', id: 'CA' };
+    countries.QA = { key: 330087, name: 'Катар', id: 'QA' };
+    countries.KE = { key: 330088, name: 'Кения', id: 'KE' };
+    countries.CY = { key: 330089, name: 'Кипр', id: 'CY' };
+    countries.KG = { key: 330090, name: 'Киргизия', id: 'KG' };
+    countries.KI = { key: 330091, name: 'Кирибати', id: 'KI' };
+    countries.CN = { key: 330092, name: 'КНР', id: 'CN' };
+    countries.TW = { key: 330204, name: 'Тайвань (Китай)', id: 'TW' };
+    countries.KP = { key: 330093, name: 'КНДР (Корейская Народно-Демократическая Республика)', id: 'KP' };
+    countries.CC = { key: 330094, name: 'Кокосовые острова', id: ' CC' };
+    countries.CO = { key: 330095, name: 'Колумбия', id: 'CO' };
+    countries.KM = { key: 330096, name: 'Коморы', id: 'KM' };
+    countries.CG = { key: 330097, name: 'Республика Конго', id: 'CG' };
+    countries.CD = { key: 330098, name: 'Демократическая Республика Конго', id: 'CD' };
+    countries.KR = { key: 330099, name: 'Республика Корея', id: 'KR' };
+    countries.CR = { key: 330100, name: 'Коста-Рика', id: 'CR' };
+    countries.CI = { key: 330101, name: 'Кот-д’Ивуар', id: 'CI' };
+    countries.CU = { key: 330102, name: 'Куба', id: 'CU' };
+    countries.KW = { key: 330103, name: 'Кувейт', id: 'KW' };
+    countries.CW = { key: 330104, name: 'Кюрасао', id: 'CW' };
+    countries.LA = { key: 330105, name: 'Лаос', id: 'LA' };
+    countries.LV = { key: 330106, name: 'Латвия', id: 'LV' };
+    countries.LS = { key: 330107, name: 'Лесото', id: 'LS' };
+    countries.LR = { key: 330108, name: 'Либерия', id: 'LR' };
+    countries.LB = { key: 330109, name: 'Ливан', id: 'LB' };
+    countries.LY = { key: 330110, name: 'Ливия', id: 'LY' };
+    countries.LT = { key: 330111, name: 'Литва', id: 'LT' };
+    countries.LI = { key: 330112, name: 'Лихтенштейн', id: 'LI' };
+    countries.LU = { key: 330113, name: 'Люксембург', id: 'LU' };
+    countries.MU = { key: 330114, name: 'Маврикий', id: 'MU' };
+    countries.MR = { key: 330115, name: 'Мавритания', id: 'MR' };
+    countries.MG = { key: 330116, name: 'Мадагаскар', id: 'MG' };
+    countries.YT = { key: 330117, name: 'Майотта', id: 'YT' };
+    countries.MO = { key: 330118, name: 'Макао', id: 'MO' };
+    countries.MK = { key: 330119, name: 'Македония', id: 'MK' };
+    countries.MW = { key: 330120, name: 'Малави', id: 'MW' };
+    countries.MY = { key: 330121, name: 'Малайзия', id: 'MY' };
+    countries.ML = { key: 330122, name: 'Мали', id: 'ML' };
+    countries.MV = { key: 330124, name: 'Мальдивы', id: 'MV' };
+    countries.MT = { key: 330125, name: 'Мальта', id: 'MT' };
+    countries.MA = { key: 330126, name: 'Марокко', id: 'MA' };
+    countries.MQ = { key: 330127, name: 'Мартиника', id: 'MQ' };
+    countries.MH = { key: 330128, name: 'Маршалловы Острова', id: 'MH' };
+    countries.MX = { key: 330129, name: 'Мексика', id: 'MX' };
+    countries.FM = { key: 330130, name: 'Микронезия', id: 'FM' };
+    countries.MZ = { key: 330132, name: 'Мозамбик', id: 'MZ' };
+    countries.MD = { key: 330133, name: 'Молдавия', id: 'MD' };
+    countries.MC = { key: 330134, name: 'Монако', id: 'MC' };
+    countries.MN = { key: 330135, name: 'Монголия', id: 'MN' };
+    countries.MS = { key: 330136, name: 'Монтсеррат', id: 'MS' };
+    countries.MM = { key: 330137, name: 'Мьянма', id: 'MM' };
+    countries.NA = { key: 330138, name: 'Намибия', id: 'NA' };
+    countries.NR = { key: 330139, name: 'Науру', id: 'NR' };
+    countries.NP = { key: 330140, name: 'Непал', id: 'NP' };
+    countries.NE = { key: 330141, name: 'Нигер', id: 'NE' };
+    countries.NG = { key: 330142, name: 'Нигерия', id: 'NG' };
+    countries.NL = { key: 330143, name: 'Нидерланды', id: 'NL' };
+    countries.NI = { key: 330144, name: 'Никарагуа', id: 'NI' };
+    countries.NU = { key: 330145, name: 'Ниуэ', id: 'NU' };
+    countries.NZ = { key: 330146, name: 'Новая Зеландия', id: 'NZ' };
+    countries.NC = { key: 330147, name: 'Новая Каледония', id: 'NC' };
+    countries.NO = { key: 330148, name: 'Норвегия', id: 'NO' };
+    countries.AE = { key: 330149, name: 'ОАЭ', id: 'AE' };
+    countries.OM = { key: 330150, name: 'Оман', id: 'OM' };
+    countries.BV = { key: 330152, name: 'Остров Буве', id: 'BV' };
+    countries.IM = { key: 330153, name: 'Остров Мэн', id: 'IM' };
+    countries.NF = { key: 330154, name: 'Остров Норфолк', id: 'NF' };
+    countries.CX = { key: 330155, name: 'Остров Рождества', id: 'CX' };
+    countries.HM = { key: 330156, name: 'Херд и Макдональд', id: 'HM' };
+    countries.KY = { key: 330157, name: 'Острова Кайман', id: 'KY' };
+    countries.CK = { key: 330158, name: 'Острова Кука', id: 'CK' };
+    countries.TC = { key: 330159, name: 'Тёркс и Кайкос', id: 'TC' };
+    countries.PK = { key: 330160, name: 'Пакистан', id: 'PK' };
+    countries.PW = { key: 330161, name: 'Палау', id: 'PW' };
+    countries.PS = { key: 330162, name: 'Государство Палестина', id: 'PS' };
+    countries.PA = { key: 330163, name: 'Панама', id: 'PA' };
+    countries.VA = { key: 330164, name: 'Ватикан', id: 'VA' };
+    countries.PG = { key: 330165, name: 'Папуа — Новая Гвинея', id: 'PG' };
+    countries.PY = { key: 330166, name: 'Парагвай', id: 'PY' };
+    countries.PE = { key: 330167, name: 'Перу', id: 'PE' };
+    countries.PL = { key: 330169, name: 'Польша', id: 'PL' };
+    countries.PT = { key: 330170, name: 'Португалия', id: 'PT' };
+    countries.PR = { key: 330171, name: 'Пуэрто-Рико', id: 'PR' };
+    countries.RE = { key: 330172, name: 'Реюньон', id: 'RE' };
+    countries.RW = { key: 330173, name: 'Руанда', id: 'RW' };
+    countries.RO = { key: 330174, name: 'Румыния', id: 'RO' };
+    countries.RU = { key: 330175, name: 'Россия', id: 'RU' };
+    countries.WS = { key: 330176, name: 'Самоа', id: 'WS' };
+    countries.ST = { key: 330178, name: 'Сан-Томе и Принсипи', id: 'ST' };
+    countries.SA = { key: 330179, name: 'Саудовская Аравия', id: 'SA' };
+    countries.SZ = { key: 330180, name: 'Свазиленд', id: 'SZ' };
+    countries.SH = { key: 330181, name: 'Острова Святой Елены, Вознесения и Тристан-да-Кунья', id: 'SH' };
+    countries.MP = { key: 330182, name: 'Северные Марианские Острова', id: 'MP' };
+    countries.SC = { key: 330183, name: 'Сейшельские Острова', id: 'SC' };
+    countries.BL = { key: 330184, name: 'Сен-Бартелеми', id: 'BL' };
+    countries.MF = { key: 330185, name: 'Сен-Мартен', id: 'MF' };
+    countries.PM = { key: 330186, name: 'Сен-Пьер и Микелон', id: 'PM' };
+    countries.SN = { key: 330187, name: 'Сенегал', id: 'SN' };
+    countries.VC = { key: 330188, name: 'Сент-Винсент и Гренадины', id: 'VC' };
+    countries.KN = { key: 330189, name: 'Сент-Китс и Невис', id: 'KN' };
+    countries.LC = { key: 330190, name: 'Сент-Люсия', id: 'LC' };
+    countries.RS = { key: 330191, name: 'Сербия', id: 'RS' };
+    countries.SG = { key: 330192, name: 'Сингапур', id: 'SG' };
+    countries.SY = { key: 330193, name: 'Сирия', id: 'SY' };
+    countries.SK = { key: 330194, name: 'Словакия', id: 'SK' };
+    countries.SI = { key: 330195, name: 'Словения', id: 'SI' };
+    countries.SB = { key: 330196, name: 'Соломоновы Острова', id: 'SB' };
+    countries.SO = { key: 330197, name: 'Сомали', id: 'SO' };
+    countries.SD = { key: 330198, name: 'Судан', id: 'SD' };
+    countries.SR = { key: 330199, name: 'Суринам', id: 'SR' };
+    countries.US = { key: 330200, name: 'США', id: 'US' };
+    countries.SL = { key: 330201, name: 'Сьерра-Леоне', id: 'SL' };
+    countries.TJ = { key: 330202, name: 'Таджикистан', id: 'TJ' };
+    countries.TH = { key: 330203, name: 'Таиланд', id: 'TH' };
+    countries.TZ = { key: 330205, name: 'Танзания', id: 'TZ' };
+    countries.TL = { key: 330206, name: 'Восточный Тимор', id: 'TL' };
+    countries.TG = { key: 330207, name: 'Того', id: 'TG' };
+    countries.TO = { key: 330209, name: 'Тонга', id: 'TO' };
+    countries.TT = { key: 330210, name: 'Тринидад и Тобаго', id: 'TT' };
+    countries.TN = { key: 330212, name: 'Тунис', id: 'TN' };
+    countries.TM = { key: 330213, name: 'Туркмения', id: 'TM' };
+    countries.TR = { key: 330214, name: 'Турция', id: 'TR' };
+    countries.UG = { key: 330215, name: 'Уганда', id: 'UG' };
+    countries.UZ = { key: 330216, name: 'Узбекистан', id: 'UZ' };
+    countries.UA = { key: 330217, name: 'Украина', id: 'UA' };
+    countries.WF = { key: 330218, name: 'Уоллис и Футуна', id: 'WF' };
+    countries.UY = { key: 330219, name: 'Уругвай', id: 'UY' };
+    countries.FO = { key: 330220, name: 'Фареры', id: 'FO' };
+    countries.FJ = { key: 330221, name: 'Фиджи', id: 'FJ' };
+    countries.PH = { key: 330222, name: 'Филиппины', id: 'PH' };
+    countries.FI = { key: 330223, name: 'Финляндия', id: 'FI' };
+    countries.FK = { key: 330224, name: 'Фолклендские острова', id: 'FK' };
+    countries.FR = { key: 330225, name: 'Франция', id: 'FR' };
+    countries.GF = { key: 330226, name: 'Гвиана', id: 'GF' };
+    countries.PF = { key: 330227, name: 'Французская Полинезия', id: 'PF' };
+    countries.TF = { key: 330228, name: 'Французские Южные и Антарктические Территории', id: 'TF' };
+    countries.HR = { key: 330229, name: 'Хорватия', id: 'HR' };
+    countries.CF = { key: 330230, name: 'ЦАР', id: 'CF' };
+    countries.TD = { key: 330231, name: 'Чад', id: 'TD' };
+    countries.ME = { key: 330232, name: 'Черногория', id: 'ME' };
+    countries.CZ = { key: 330233, name: 'Чехия', id: 'CZ' };
+    countries.CL = { key: 330234, name: 'Чили', id: 'CL' };
+    countries.CH = { key: 330235, name: 'Швейцария', id: 'CH' };
+    countries.SE = { key: 330236, name: 'Швеция', id: 'SE' };
+    countries.SJ = { key: 330237, name: 'Шпицберген и Ян-Майен', id: 'SJ' };
+    countries.LK = { key: 330238, name: 'Шри-Ланка', id: 'LK' };
+    countries.EC = { key: 330239, name: 'Эквадор', id: 'EC' };
+    countries.GQ = { key: 330240, name: 'Экваториальная Гвинея', id: 'GQ' };
+    countries.AX = { key: 330241, name: 'Аландские острова', id: 'AX' };
+    countries.SV = { key: 330242, name: 'Сальвадор', id: 'SV' };
+    countries.ER = { key: 330243, name: 'Эритрея', id: 'ER' };
+    countries.EE = { key: 330244, name: 'Эстония', id: 'EE' };
+    countries.ET = { key: 330245, name: 'Эфиопия', id: 'ET' };
+    countries.ZA = { key: 330246, name: 'ЮАР', id: 'ZA' };
+    countries.GS = { key: 330247, name: 'Южная Георгия и Южные Сандвичевы Острова', id: 'GS' };
+    countries.SS = { key: 330248, name: 'Южный Судан', id: 'SS' };
+    countries.JM = { key: 330249, name: 'Ямайка', id: 'JM' };
+    countries.JP = { key: 330250, name: 'Япония', id: 'JP' };
+
+
+    $.getJSON("../maps/world.geo.json").done(function (world, status) {
+        document.write('<br/><br/><br/><br/>World<br/>');
+        function getDeferredArray() {
+            var deferreds = [];
+            $.each(world.features,
+                function(index, feature) {
+                    var id = feature.properties.id;
+                    var data = countries[id];
+                    if (data) {
+                        var saveData = {
+                            id: data.key,
+                            key: data.id,
+                            name: data.name,
+                            color: '#color#',
+                            text: '#text#',
+                            remark: '#remark#' 
+                        }
+                        var saveFeature = {
+                            "type": "Feature",
+                            "properties": saveData,
+                            "geometry": feature.geometry
+                        }
+                        deferreds.push(api.post(api.url.addGeodata,
+                        {
+                            psysname: '',
+                            pjsonformat: JSON.stringify(saveFeature),
+                            pclassid: data.key
+                        }).done(function(ret) {
+                            document.write("Обработка " + data.name + '<br/>');
+                        }));
+                    }
+                });
+            return (deferreds);
+        }
+        var deferreds = getDeferredArray();
+        $.when.apply(null, deferreds).done(function () {
+        });
+    });
+        */
+
+        $.getJSON("../maps/continents2.geo.json").done(function (world, status) {
+            document.write('<br/><br/><br/><br/>World<br/>');
+            function getDeferredArray() {
+                var deferreds = [];
+                $.each(world.features,
+                    function (index, feature) {
+                        var id = 0, name = "";
+                        if (feature.properties.CONTINENT === "Africa") {
+                            id = 604;
+                            name = "Африка";
+                        }
+                        if (feature.properties.CONTINENT === "Antarctica") {
+                            id = 606;
+                            name = "Антарктида";
+                        }
+                        if (feature.properties.CONTINENT === "Asia") {
+                            id = 603;
+                            name = "Азия";
+                        }
+                        if (feature.properties.CONTINENT === "Australia") {
+                            id = 601;
+                            name = "Австралия";
+                        }
+                        if (feature.properties.CONTINENT === "Europe") {
+                            id = 602;
+                            name = "Европа";
+                        }
+                        if (feature.properties.CONTINENT === "NorthAmerica") {
+                            id = 1;
+                            name = "Северная Америка";
+                        }
+                        if (feature.properties.CONTINENT === "Океания") {
+                            id = 1;
+                            name = "";
+                        }
+                        if (feature.properties.CONTINENT === "SouthAmerica") {
+                            id = 605;
+                            name = "Южная Америка";
+                        }
+                        
+                        if (id !==0 ) {
+                            var saveData = {
+                                id: id,
+                                key: id,
+                                name: name,
+                                color: '#color#',
+                                text: '#text#',
+                                remark: '#remark#' 
+                            }
+                            var saveFeature = {
+                                "type": "Feature",
+                                "properties": saveData,
+                                "geometry": feature.geometry
+                            }
+                            deferreds.push(api.post(api.url.addGeodata,
+                                {
+                                    psysname: '',
+                                    pjsonformat: JSON.stringify(saveFeature),
+                                    pclassid: id
+                                }).done(function(ret) {
+                                document.write("Обработка " + data.name + '<br/>');
+                            }));
+                        }
+                    });
+                return (deferreds);
+            }
+            var deferreds = getDeferredArray();
+            $.when.apply(null, deferreds).done(function () {
+            });
+        });
+
+
+
+
+
+});
+
+
+</script>
+
+
+</body>
+</html>

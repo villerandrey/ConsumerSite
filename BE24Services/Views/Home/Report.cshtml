@@ -1,0 +1,52 @@
+﻿@using Stimulsoft.Report.NetCore
+@{
+    Layout =null; 
+}
+
+@*<br />
+@Html.ActionLink("Export report to HTML", "ExportHtml")
+<br />
+ 
+@Html.ActionLink("Export report to PDF", "ExportPdf",5)
+<br />*@
+
+@Html.Stimulsoft().StiNetCoreViewer("NetCoreViewer1",
+
+new StiNetCoreViewerOptions()
+{
+
+    Actions =
+
+{
+Interaction = "Interaction",
+GetReport = "GetReport",
+GetReportData = "GetReportData",
+
+ViewerEvent = "ViewerEvent",
+
+ExportReport = "ExpRep"
+},
+    Localization = "/localization/ru.xml",
+    Toolbar = {
+
+        Visible = true,
+        ViewMode = StiWebViewMode.WholeReport,
+        ShowAboutButton = false,
+        ShowDesignButton = false
+
+ },
+    Exports =
+    {
+        ShowExportToDocument = true,
+        ShowExportToExcel2007 = true
+
+    },
+    Appearance =
+    {
+        ScrollbarsMode=true,
+        FullScreenMode = true
+
+    }
+
+})
+

@@ -1,0 +1,492 @@
+﻿<div id="blockReport" class="grid_main_section" style="display: none">
+    <div class="setkaSection">
+        <div class="boxReport topLeft">
+            <div class="btnResize"></div>
+            <div class="contentReport reportSearch"></div>
+        </div>
+        <div class="boxReport topRight">
+            <div class="btnResize"></div>
+            <div class="contentReport reportRussiaMap"></div>
+        </div>
+        <div class="boxReport bottomLeftTop">
+            <div class="btnResize"></div>
+            <div class="contentReport reportCompanyRisk small"></div>
+        </div>
+        <div class="boxReport bottomLeftBottom">
+            <div class="btnResize"></div>
+            <div class="contentReport reportCompanyGrowth small"></div>
+        </div>
+        <div class="boxReport bottomRightTop">
+            <div class="btnResize" openChart="true"></div>
+            <div class="contentReport reportCompanyСorpus small"></div>
+        </div>
+        <div class="boxReport bottomRightBottom">
+            <div class="btnResize"></div>
+            <div class="contentReport reportContinent small"></div>
+        </div>
+        <div class="boxReport bottomRight">
+            <div class="btnResize"></div>
+            <div class="contentReport reportWoldMap"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-template" id="templateReportSearch">
+    <div class="left_form_section">
+        <div class="central-content_header-filters">
+            <div class="central-content_header-filters_serch_input">
+                <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск">
+            </div>
+            <button id="btn_plus2" class="btn orange btnReset">Сброс</button>
+        </div>
+        <div class="nabor_form">
+            <!--<div class="nabor_form_block companies">
+            </div>-->
+            <div class="lpart">
+                <label for="thezis_companyId">Выбрать компанию:</label>
+                <input data-role="autocomplete"
+                       id="thezis_companyId"
+                       name="thezis_companyId"
+                       data-message="<b>Выбрать компанию</b> - поле должно быть заполнено"
+                       data-text-field="name"
+                       data-filter="contains"
+                       data-auto-bind="false"
+                       data-bind="value: company, source: companies, events: { select: onSelectCompany, change: onChangeCompany  }"
+                       style="width: 100%" />
+            </div>
+            <div class="nabor_form_block regions">
+            </div>
+            <div class="nabor_form_block countries">
+            </div>
+        </div>
+        <div class="nabor_form">
+            <div class="nabor_form_block industries">
+            </div>
+            <div class="nabor_form_block markets">
+            </div>
+            <div class="nabor_form_block demands">
+            </div>
+            <div class="verticalBanner"></div>
+        </div>
+        <div class="img_banner"></div>
+    </div>
+    <div class="right_form_section">
+        <div class="block_indicator"></div>
+        <div class="title"><b>Риски</b> - Стратегическая Карта и Мониторинг</div>
+        <div class="listt_block">
+            <div class="line">
+                <div class="title_line">1. Компании</div>
+                <button class="btn orange btnRiskCompany">Поиск</button>
+            </div>
+            <div class="line">
+                <div class="title_line">4. Отрасли</div>
+                <button class="btn orange btnRiskIndustry">Поиск</button>
+            </div>
+            <div class="line">
+                <div class="title_line">5. Рынки</div>
+                <button class="btn orange btnRiskMarket">Поиск</button>
+            </div>
+            <div class="line">
+                <div class="title_line">6. Спрос, потребительский</div>
+                <button class="btn orange btnRiskDemand">Поиск</button>
+            </div>
+        </div>
+        <div class="block_indicator with_margin blue"></div>
+        <div class="title blue"><b>Рост</b> - Стратегическая Карта и Мониторинг</div>
+        <div class="listt_block">
+            <div class="line">
+                <div class="title_line">1. Компании</div>
+                <button class="btn orange btnRostCompany">Поиск</button>
+            </div>
+            <div class="line">
+                <div class="title_line">4. Отрасли</div>
+                <button class="btn orange btnRostIndustry">Поиск</button>
+            </div>
+            <div class="line">
+                <div class="title_line">5. Рынки</div>
+                <button class="btn orange btnRostMarket">Поиск</button>
+            </div>
+            <div class="line">
+                <div class="title_line">6. Спрос, потребительский</div>
+                <button class="btn orange btnRostDemand">Поиск</button>
+            </div>
+        </div>
+        <div class="nabor_form fullWidth">
+            <div class="bottom_panel">
+                <div class="bottom_panel">
+                    <div class="title_bottom_panel nomargin">Период:</div>
+                    <div class="selectDateRange"></div>
+                    <div class="title_bottom_panel">С</div>
+                    <input class="startDate" />
+                    <div class="title_bottom_panel">По</div>
+                    <input class="endDate" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+
+<script type="text/x-template" id="templateSearchBlock">
+    <div class="title_panel">
+        <div class="title"></div>
+        <div class="block_indicator right blue"></div>
+    </div>
+    <div class="panel">
+        <div class="top_panel">
+            <div class="selectValue"></div>
+            <button class="btn orange btnSearch">Поиск</button>
+        </div>
+        <div class="bottom_panel">
+            <div class="title_bottom_panel nomargin">Период:</div>
+            <div class="selectDateRange"></div>
+            <div class="title_bottom_panel">С</div>
+            <input class="startDate"/>
+            <div class="title_bottom_panel">По</div>
+            <input class="endDate" />
+        </div>
+    </div>
+</script>
+
+
+
+<script type="text/x-template" id="templateReportCompanyСorpus">    
+    <section class="head_panel">
+        <section class="head_block withBefore">
+            <div class="top_title"><span>SWOT-отчет</span></div>
+            <div class="bottom_title"><span class="headerTitle"></span></div>
+        </section>
+        <section class="head_block right">
+            <div class="top_title"><b>Business EXPERT 24</b></div>
+            <div class="bottom_title">
+                <span>Период отчета: </span><span class="dateRange">03.02.2016 - 16.02.2016</span>
+            </div>
+        </section>
+    </section>
+    <section class="section_reports_win">
+        <div class="halfWindowForms">
+            <section class="grid_top_panel">
+                <div class="leftP"><div class="block_indicator blue"></div></div>
+                <div class="rightP"><div class="grid_top_panel_title blue"><b>Точки Роста&nbsp;</b><span class="count1"></span></div></div>
+            </section>
+            <div class="grid_panel_report"><div class="gridUp"></div></div>
+            <section class="grid_top_panel">
+                <div class="block_indicator green noIcon"><b>Позитивы</b></div>
+                <div class="grid_top_panel_title poz"><b>Позитивы&nbsp;</b><span class="count2"><b></b></span></div>
+            </section>
+            <div class="grid_panel_report"><div class="gridPositive"></div></div>
+        </div>
+        <div class="halfWindowForms">
+            <section class="grid_top_panel">
+                <div class="block_indicator red"></div>
+                <div class="grid_top_panel_title red"><b>Риски&nbsp;</b><span class="count4"></span></div>
+            </section>
+            <div class="grid_panel_report"><div class="gridRisk"></div></div>
+            <section class="grid_top_panel">
+                <div class="block_indicator red noIcon"><b>Негативы</b></div>
+                <div class="grid_top_panel_title neg"><b>Негативы&nbsp;</b><span class="count3"></span></div>
+            </section>
+            <div class="grid_panel_report"><div class="gridNegative"></div></div>
+        </div>
+    </section>
+    <section class="diagrams_report reportDiagrams">
+        <!--<div class="inform_diagram">
+            <ul class="list">
+                <li class="rost">Точки роста</li>
+                <li class="pozitiv">Позитивы</li>
+                <li class="nagativ">Негативы</li>
+                <li class="riski">Риски</li>
+            </ul>
+        </div>-->
+        <div class="company_d_container">
+            <div class="company_diagrams">
+                <div class="content companyInfoChart">
+                    <div class="caption">Компания:<span class="title" title=""></span></div>
+                    <div class="diagram">
+                        <div class="diagram_content">
+                            <div id="doughnutChart1" class="chart"></div>
+                        </div>
+                        <ul class="diagram_info">
+                            <li class="rost">0%</li>
+                            <li class="pozitiv">0%</li>
+                            <li class="nagativ">0%</li>
+                            <li class="riski">0%</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content industryInfoChart">
+                    <div class="caption">Отрасль: <span class="title" title=""></span></div>
+                    <div class="diagram">
+                        <div class="diagram_content">
+                            <div id="doughnutChart2" class="chart"></div>
+                        </div>
+                        <ul class="diagram_info">
+                            <li class="rost">0%</li>
+                            <li class="pozitiv">0%</li>
+                            <li class="nagativ">0%</li>
+                            <li class="riski">0%</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content marketInfoChart">
+                    <div class="caption">Рынок ^^: <span class="title" title=""></span></div>
+                    <div class="diagram">
+                        <div class="diagram_content">
+                            <div id="doughnutChart3" class="chart"></div>
+                        </div>
+                        <ul class="diagram_info">
+                            <li class="rost">0%</li>
+                            <li class="pozitiv">0%</li>
+                            <li class="nagativ">0%</li>
+                            <li class="riski">0%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="company_info">
+                <div class="title">Полное наименование компании:</div>
+                <div class="text fullname"></div>
+                <div class="title">Краткое наименование:</div>
+                <div class="text shortname"></div>
+                <div class="title">Описание:</div>
+                <textarea class="description" readonly></textarea>
+                <div class="text sectorName"><b>Отрасль:</b></div>
+                <div class="text countryName"><b>Страна:</b></div>
+                <div class="text regionrfName"><b>Регион:</b></div>
+                <div class="title">Юридический адрес:</div>
+                <div class="text legaladdress"></div>
+                <div class="text inn"><b>ИНН:</b></div>
+            </div>
+        </div>
+        <div class="inform_diagram bottom">
+            <ul class="list">
+                <li class="buttonSortByName">Рынки по алфавиту</li>
+                <li class="rost buttonSortByRost">Точки роста</li>
+                <li class="pozitiv buttonSortByPoztiv">Позитивы</li>
+                <li class="nagativ buttonSortByNegativ">Негативы</li>
+                <li class="riski buttonSortByRiski" >Риски</li>
+            </ul>
+        </div>
+        <div class="company_d_goriz">
+            <div class="company_d_goriz_block">
+            </div>
+        </div>
+        <div class="company_d_section">
+            <div class="tit_company_d_section">МАКРОЭКОНОМИЧЕСКИЕ УРОВНИ - РОССИЯ И МИР</div>
+            <div class="companiesRussianChart block_d">
+                <div class="title"></div>
+                <div class="diagrama">
+                    <div id="doughnutChart4" class="chart"></div>
+                </div>
+                <ul class="list_info">
+                    <li class="rost"><span>30%</span></li>
+                    <li class="pozitiv"><span>30%</span></li>
+                    <li class="nagativ"><span>25%</span></li>
+                    <li class="riski"><span>15%</span></li>
+                </ul>
+            </div>
+            <div class="commodityTurnoverChart block_d">
+                <div class="title">Компании</div>
+                <div class="diagrama">
+                    <div id="doughnutChart5" class="chart"></div>
+                </div>
+                <ul class="list_info">
+                    <li class="rost"><span>30%</span></li>
+                    <li class="pozitiv"><span>30%</span></li>
+                    <li class="nagativ"><span>25%</span></li>
+                    <li class="riski"><span>15%</span></li>
+                </ul>
+            </div>
+            <div class="geoPolitikChart block_d">
+                <div class="title">Компании</div>
+                <div class="diagrama">
+                    <div id="doughnutChart6" class="chart"></div>
+                </div>
+                <ul class="list_info">
+                    <li class="rost"><span>30%</span></li>
+                    <li class="pozitiv"><span>30%</span></li>
+                    <li class="nagativ"><span>25%</span></li>
+                    <li class="riski"><span>15%</span></li>
+                </ul>
+            </div>
+            <div class="demandChart block_d">
+                <div class="title">Компании</div>
+                <div class="diagrama">
+                    <div id="doughnutChart7" class="chart"></div>
+                </div>
+                <ul class="list_info">
+                    <li class="rost"><span>30%</span></li>
+                    <li class="pozitiv"><span>30%</span></li>
+                    <li class="nagativ"><span>25%</span></li>
+                    <li class="riski"><span>15%</span></li>
+                </ul>
+            </div>
+            <div class="be24Chart block_d">
+                <div class="title">Компании</div>
+                <div class="diagrama">
+                    <div id="doughnutChart8" class="chart"></div>
+                </div>
+                <ul class="list_info">
+                    <li class="rost"><span>30%</span></li>
+                    <li class="pozitiv"><span>30%</span></li>
+                    <li class="nagativ"><span>25%</span></li>
+                    <li class="riski"><span>15%</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="bottom_buttons_line">
+        <ul>
+           <!-- <li class="btn blue btnToWord">Word</li>-->
+           <!-- <li class="btn blue btnToExcel">Excel</li>-->
+            <li class="btn blue btnToPdf">Готово</li>
+        </ul>
+    </section>
+
+</script>
+
+
+<script type="text/x-template" id="templateReportCompanyRisk">
+    <div class="dialog"></div>
+    <section class="head_panel">
+        <section class="head_block">
+            <div class="top_title"><span>SMART-отчет - Риски&nbsp;<span class="count"></span></span></div>
+            <div class="bottom_title two_lines">
+                <span class="headerTitle"></span>
+                <div class="block_indicator red"></div>
+            </div>
+        </section>
+        <section class="head_block right">
+            <div class="top_title"><b>Business EXPERT 24</b></div>
+            <div class="bottom_title">
+                <span>Период отчета: </span><span class="dateRange">03.02.2016 - 16.02.2016</span>
+            </div>
+        </section>
+    </section>
+    <div class="grid_panel_report TopMargin">
+        <div class="gridCompany"></div>
+    </div>
+    <section class="bottom_buttons_line">
+        <ul>
+         <!--   <li class="btn blue btnToWord">Word</li>-->
+          <!--  <li class="btn blue btnToExcel">Excel</li>-->
+            <li class="btn blue btnToPdf">Готово</li>
+        </ul>
+    </section>
+
+</script>
+
+
+
+<script type="text/x-template" id="templateReportCompanyGrowth">
+    <div class="dialog"></div>
+    <section class="head_panel">
+        <section class="head_block">
+            <div class="top_title"><span>SMART-отчет - Точки Роста&nbsp;</span><span class="count"></span></div>
+            <div class="bottom_title two_lines">
+                <span class="headerTitle"></span>
+                <div class="block_indicator blue"></div>
+            </div>
+        </section>
+        <section class="head_block right">
+            <div class="top_title"><b>Business EXPERT 24</b></div>
+            <div class="bottom_title">
+                <span>Период отчета: </span><span class="dateRange">03.02.2016 - 16.02.2016</span> 
+            </div>
+        </section>
+    </section>
+    <div class="grid_panel_report TopMargin"><div class="gridCompany"></div></div>
+    <section class="bottom_buttons_line">
+        <ul>
+            <!--<li class="btn blue btnToWord">Word</li>-->
+           <!-- <li class="btn blue btnToExcel">Excel</li>-->
+            <li class="btn blue btnToPdf">Готово</li>
+        </ul>
+    </section>
+
+</script>
+
+
+<script type="text/x-template" id="templateReportContinent">
+    <section class="head_panel">
+        <section class="head_block">
+            <div class="top_title"><div class="block_indicator blue"></div></div>
+            <div class="bottom_title"><span>BUSINESS-отчет </span><span class="headerTitle"></span>&nbsp;<span class="count"></span></div>
+        </section>
+        <section class="head_block right">
+            <div class="top_title"><b>Business EXPERT 24</b></div>
+            <div class="bottom_title">
+                <span>Период отчета: </span><span class="dateRange">03.02.2016 - 16.02.2016</span> 
+            </div>
+        </section>
+    </section>
+    <div class="grid_panel_report ind"><div class="gridCompany"></div></div>
+    <section class="bottom_buttons_line">
+        <ul>
+           <!-- <li class="btn blue btnToWord">Word</li>-->
+           <!-- <li class="btn blue btnToExcel">Excel</li>-->
+            <li class="btn blue btnToPdf">Готово</li>
+        </ul>
+    </section>
+</script>
+
+<script type="text/x-template" id="templateReportRussiaMap">
+    <section class="head_panel">
+        <section class="head_block">
+            <div class="top_title"><span>GEO-Россия Стратегическая Карта - </span><span class="geoTitle"></span></div>
+            <div class="bottom_title"><span class="headerTitle"></span>&nbsp;<span class="count"></span></div>
+        </section>
+        <section class="head_block right">
+            <div class="top_title"><b>Business EXPERT 24</b></div>
+            <div class="bottom_title">
+                <span>Период отчета: </span><span class="dateRange">03.02.2016 - 16.02.2016</span> 
+            </div>
+        </section>
+    </section>
+    <section class="title_content">
+        Регионы Российской Федерации
+    </section>
+    <section class="map_container">
+        <div class="mapToPdfCover">Generating PDF</div>
+        <div class="map" id="russiaMap"></div>
+    </section>
+    <section class="buttons">
+        <ul>
+        <!--    <li class="btn blue btnMapToPdf">Готово</li>-->
+        </ul>
+    </section>
+</script>
+
+    
+<script type="text/x-template" id="templateReportWoldMap">
+    <section class="head_panel">
+        <section class="head_block">
+            <div class="top_title"><span>GEO-Мир Стратегическая Карта - </span><span class="geoTitle"></span></div>
+            <div class="bottom_title"><span class="headerTitle"></span></div>
+        </section>
+        <section class="head_block right">
+            <div class="top_title"><b>Business EXPERT 24</b></div>
+            <div class="bottom_title">
+                <span>Период отчета: </span><span class="dateRange">03.02.2016 - 16.02.2016</span> 
+            </div>
+        </section>
+    </section>
+    <section class="title_content">
+        Страны	Мира
+    </section>
+    <section class="map_container">
+        <div class="mapToPdfCover">Generating PDF</div>
+        <div class="map" id="worldMap"></div>
+    </section>
+    <section class="buttons">
+        <ul>
+           <!-- <li class="btn blue btnMapToPdf">Готово</li>-->
+        </ul>
+    </section>
+</script>
+
+
+

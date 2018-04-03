@@ -1,0 +1,290 @@
+﻿<div id="blockTezisEdit" style="display: none" class="grid_main_section">
+    <div id="editorTezis">
+        <div class="confirmDialog"></div>
+        <div class="top_bar no_height">
+            <div class="form_section">
+                <div class="central-content_title-sprav widtauto">Добавление / редактирование компании</div>
+                <div class="buttons_form_top">
+                    <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                    <button color="red" class="deleteButton k-button btnCancel btn withIcon red" data-bind="events: { click: remove }">Удалить</button>
+                    <button color="green" class="k-button btnBack btn withIcon blue" data-bind="events: { click: cancel }">Закрыть</button>
+                </div>
+            </div>
+        </div>
+        <div class="editor_company_section">
+        <div class="form_section">
+        <div class="childs3">
+            <div>
+                <label for="thezis_id">ID:</label>
+                <input type="text"
+                       id="thezis_id"
+                       name="thezis_id"
+                       readonly
+                       class="k-textbox"
+                       maxlength="64"
+                       data-bind="value: id"/>
+            </div>
+            <div>
+                <label for="thezis_createdAtStr">Дата:</label>
+                <input type="text"
+                       id="thezis_createdAtStr"
+                       name="thezis_createdAtStr"
+                       readonly
+                       class="k-textbox"
+                       maxlength="64"
+                       data-bind="value: createdAtStr"/>
+            </div>
+            <div>
+                <label for="thezis_createdAtStr">Пользователь:</label>
+                <input type="text"
+                       id="thezis_createdByUserName"
+                       name="thezis_createdByUserName"
+                       readonly
+                       class="k-textbox"
+                       maxlength="64"
+                       data-bind="value: createdByUserName"/>
+            </div>
+        </div>
+                <label for="thezis_thesisText">Текст тезиса:</label>
+                <textarea class="k-textbox"
+                          id="thezis_thesisText"
+                          name="thezis_thesisText"
+                          data-message="<b>Текст тезиса</b> - поле должно быть заполнено"
+                          data-bind="value: thesisText"
+                          maxlength="102400"></textarea>
+                <div>
+                    <ul id="thezis_category">
+                        <li class="btn">Компания</li>
+                        <li class="btn">Отрасль</li>
+                        <li class="btn">Рынок</li>
+                        <li class="btn">Спрос</li>
+                    </ul>
+                </div>
+
+
+                <div class="lineInputs one">
+                    <label for="thezis_swotIndicator">Индикатор:</label>
+                    <select data-role="dropdownlist"
+                            id="thezis_swotIndicator"
+                            name="thezis_swotIndicator"
+                            data-message="<b>Индикатор</b> - поле должно быть заполнено"
+                            data-value-field="id"
+                            data-text-field="name"
+                            data-auto-bind="false"
+                            data-bind="value: obj_swotIndicator, source: indicators"
+                            style="width: 100%"></select>
+                </div>
+
+                <div class="lineInputs with_btn company">
+                    <div class="lpart">
+                        <label for="thezis_companyId">Выбрать компанию:</label>
+                        <input data-role="autocomplete"
+                               id="thezis_companyId"
+                               name="thezis_companyId"
+                               data-message="<b>Выбрать компанию</b> - поле должно быть заполнено"
+                               data-text-field="name"
+                               data-filter="contains"
+                               data-auto-bind="false"
+                               data-bind="value: company, source: companies, events: { select: onSelectCompany, change: onChangeCompany  }"
+                               style="width: 100%"/>
+                    </div>
+                    <button color="green" class="k-button btn withIcon blue btnNew" data-bind="events: { click: addCompany }">Новая</button>
+                </div>
+
+                <div class="companyRegion">
+                    <label for="thezis_companyRegionText">Регион компании:</label>
+                    <input type="text"
+                           id="thezis_companyRegionText"
+                           name="thezis_companyRegionText"
+                           readonly
+                           class="k-textbox"
+                           data-bind="value: companyRegionText" />
+                </div>
+
+                <div class="companyIndustry">
+                    <label class="companyIndustry" for="thezis_companyIndustryText">Отрасль компании:</label>
+                    <input type="text"
+                           id="thezis_companyIndustryText"
+                           name="thezis_companyIndustryText"
+                           readonly
+                           class="k-textbox"
+                           data-bind="value: companyIndustryText" />
+                </div>
+
+                <div class="industry" style="display: none">
+                    <label for="thezis_sectorid">Отрасль:</label>
+                    <select data-role="dropdownlist"
+                            id="thezis_sectorid"
+                            name="thezis_sectorid"
+                            data-message="<b>Отрасль</b> - поле должно быть заполнено"
+                            data-value-field="id"
+                            data-text-field="name"
+                            data-filter="contains"
+                            data-auto-bind="false"
+                            data-bind="value: obj_sector, source: industries"
+                            style="width: 100%"></select>
+                </div>
+
+                <div class="market" style="display: none">
+                    <label for="thezis_marketId">Рынок:</label>
+                    <select data-role="dropdownlist"
+                            id="thezis_marketId"
+                            name="thezis_marketId"
+                            data-message="<b>Рынок</b> - поле должно быть заполнено"
+                            data-value-field="id"
+                            data-text-field="name"
+                            data-filter="contains"
+                            data-auto-bind="false"
+                            data-bind="value: obj_market, source: markets"
+                            style="width: 100%"></select>
+                </div>
+
+                <div class="demand" style="display: none">
+                    <label for="thezis_demandId">Спрос:</label>
+                    <select data-role="dropdownlist"
+                            id="thezis_demandId"
+                            name="thezis_demandId"
+                            data-message="<b>Спрос</b> - поле должно быть заполнено"
+                            data-value-field="id"
+                            data-text-field="name"
+                            data-filter="contains"
+                            data-auto-bind="false"
+                            data-bind="value: obj_demand, source: demands"
+                            style="width: 100%"></select>
+                </div>
+                <div class="tema">
+                    <label for="thezis_temaId">Тема:</label>
+                    <select data-role="dropdownlist"
+                            id="thezis_temaId"
+                            name="thezis_temaId"
+                            data-message="<b>Тема</b> - поле должно быть заполнено"
+                            data-value-field="id"
+                            data-text-field="name"
+                            data-filter="contains"
+                            data-auto-bind="false"
+                            data-bind="value: obj_parameter, source: parameters"
+                            style="width: 100%"></select>
+                    </div> 
+                <label for="thezis_sectionId">Раздел:</label>
+                <select data-role="dropdownlist"
+                        id="thezis_sectionId"
+                        name="thezis_sectionId"
+                        data-message="<b>Раздел</b> - поле должно быть заполнено"
+                        data-value-field="id"
+                        data-text-field="name"
+                        data-filter="contains"
+                        data-auto-bind="false"
+                        data-bind="value: obj_part, source: parts"
+                        style="width: 100%"></select>
+
+                <label for="thezis_countryId">Страна проекта:</label>
+                <select data-role="dropdownlist"
+                        id="thezis_countryId"
+                        name="thezis_countryId"
+                        data-message="<b>Страна проекта</b> - поле должно быть заполнено"
+                        data-value-field="id"
+                        data-text-field="name"
+                        data-filter="contains"
+                        data-auto-bind="false"
+                        data-bind="value: obj_country, source: countries"
+                        style="width: 100%"></select>
+            
+
+                <div class="newsThezisBlock">
+                    <div class="separator_form"></div>
+                    
+                    <div class="top_bar no_height">
+                        <div class="form_section">
+                            <div class="title_sub_news">Новости</div>
+                            <div class="buttons_form_top">
+                                <button color="green" class="k-button btnCopy btn withIcon blue getEmptyNews" data-bind="events: { click: getEmptyNews }">Новая новость</button>
+                                <button color="green" class="k-button btnCopy btn withIcon blue getFromPrevNews" data-bind="events: { click: getFromPrevNews }">Взять из предыдущей новости</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: none">
+                        <label for="thezis_newsId">ID новости:</label>
+                        <input type="text"
+                               id="thezis_newsId"
+                               name="thezis_newsId"
+                               readonly
+                               class="k-textbox"
+                               data-bind="value: newsId" />
+
+                        <label for="thezis_createdNewsAtStr">Дата:</label>
+                        <input type="text"
+                               id="thezis_createdNewsAtStr"
+                               name="thezis_createdNewsAtStr"
+                               readonly
+                               class="k-textbox"
+                               data-bind="value: createdNewsAtStr" />
+                    </div>
+
+                    <label for="thezis_newsText">Текст новости:</label>
+                    <textarea data-role="editor"
+                              id="thezis_newsText"
+                              name="thezis_newsText"
+                              data-tools="[
+                                'bold',
+                                'italic',
+                                'underline',
+                                'strikethrough',
+                                'justifyLeft',
+                                'justifyCenter',
+                                'justifyRight',
+                                'justifyFull',
+                                'insertUnorderedList',
+                                'insertOrderedList',
+                                'indent',
+                                'outdent',
+                                'createLink',
+                                'unlink',
+                                'insertImage',
+                                'insertFile',
+                                'subscript',
+                                'superscript',
+                                'tableWizard',
+                                'createTable',
+                                'addRowAbove',
+                                'addRowBelow',
+                                'addColumnLeft',
+                                'addColumnRight',
+                                'deleteRow',
+                                'deleteColumn',
+                                'viewHtml',
+                                'formatting',
+                                'cleanFormatting']"
+                              maxlength="102400"
+                              data-bind="value: newsText"
+                              style="height: 200px;"></textarea>
+
+                    <!--<textarea class="k-textbox"
+                              id="thezis_newsText"
+                              name="thezis_newsText"
+                              rows="5"
+                              data-message="<b>Текст новости</b> - поле должно быть заполнено"
+                              data-bind="value: newsText"
+                              maxlength="102400"></textarea>-->
+
+                    <!--<div class="line_uploads">
+                        <div class="btn_block">
+                            <div class="title">
+                                Прикрепить файлы<br><span>Word, Excel, Pdf</span>
+                            </div>
+                        </div>
+                        <div class="files_field fileUpload"></div>
+                    </div>-->
+                    <div class="line_uploads">
+                        <div class="files_field">
+                            <div class="title">
+                                <span>Файлы:</span>
+                            </div>
+                            <div class="fileUpload"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

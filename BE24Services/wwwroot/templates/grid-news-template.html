@@ -1,0 +1,73 @@
+﻿<script type="text/x-template" id="grid-news-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <div @click="sortBy('swotIndicatorName')"
+                             :class="{ active: sortKey == 'swotIndicatorName' }">
+                            Индикатор
+                            <span class="arrow" :class="sortOrders['swotIndicatorName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th> 
+                    <th>
+                        <div @click="sortBy('categoryName')"
+                             :class="{ active: sortKey == 'categoryName' }">
+                            Категория
+                            <span class="arrow" :class="sortOrders['categoryName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('tema')"
+                             :class="{ active: sortKey == 'tema' }">
+                            Показатель
+                            <span class="arrow" :class="sortOrders['tema'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('companySectorValue')"
+                             :class="{ active: sortKey == 'companySectorValue' }">
+                            Раздел
+                            <span class="arrow" :class="sortOrders['companySectorValue'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('company')"
+                             :class="{ active: sortKey == 'company' }">
+                            Компания
+                            <span class="arrow" :class="sortOrders['company'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('section')"
+                             :class="{ active: sortKey == 'section' }">
+                            Отрасль
+                            <span class="arrow" :class="sortOrders['section'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('countryregionName')"
+                             :class="{ active: sortKey == 'countryregionName' }">
+                            Регион
+                            <span class="arrow" :class="sortOrders['countryregionName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                   
+                    <th>
+                        <div @click="sortBy('thesisText')"
+                             :class="{ active: sortKey == 'thesisText' }">
+                            Текст
+                            <span class="arrow" :class="sortOrders['thesisText'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData" @click="selectEntry(entry)" style="cursor: pointer">
+                    <td v-for="key in columns">
+                        <div v-html="entry[key]"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

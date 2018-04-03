@@ -1,0 +1,68 @@
+﻿<div id="blockClassifierEdit" style="display: none" class="grid_main_section">
+    <div id="editorClassifier">
+        <div class="editorClassifierDialog"></div>
+        <div class="top_bar no_height">
+            <div class="form_section">
+                <div class="central-content_title-sprav widtauto">Добавление / редактирование элемента справочника</div>
+                <div class="buttons_form_top">
+                    <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                    <button color="red" class="deleteButton k-button btnCancel btn withIcon red" data-bind="events: { click: remove }">Удалить</button>
+                    <button color="green" class="restoreButton k-button btnAdd btn withIcon green" data-bind="events: { click: restore }">Восстановить</button>
+                    <button color="green" class="k-button btnBack btn withIcon blue" data-bind="events: { click: cancel }">Закрыть</button>
+                </div>
+            </div>
+        </div>
+        <div class="editor_company_section classifier">
+            <div class="form_section">
+                <div>
+                    <label for="classifier_id">ID:</label>
+                    <input type="text"
+                           id="classifier_id"
+                           name="classifier_id"
+                           readonly
+                           class="k-textbox"
+                           maxlength="64"
+                           data-bind="value: id" />
+                </div>
+                <div>
+                    <label for="classifier_name">Наименование:</label>
+                    <input type="text"
+                           id="classifier_name"
+                           name="classifier_name"
+                           data-message="<b>Наименование</b> - поле должно быть заполнено"
+                           class="k-textbox"
+                           maxlength="128"
+                           data-bind="value: name" />
+                </div>
+                <div>
+                    <label for="classifier_systemname">Код:</label>
+                    <input type="text"
+                           id="classifier_systemname"
+                           name="classifier_systemname"
+                           data-message="<b>Код</b> - поле должно быть заполнено"
+                           class="k-textbox"
+                           maxlength="64"
+                           data-bind="value: systemname" />
+                </div>
+                <div>
+                    <label for="classifier_description">Комментарий:</label>
+                    <textarea class="k-textbox"
+                              id="classifier_description"
+                              name="classifier_description"
+                              data-message="<b>Описание</b> - поле должно быть заполнено"
+                              data-bind="value: description"
+                              maxlength="2048"></textarea>
+                </div>
+                <div>
+                    <div class="btn_new_classifier">
+                        <button color="green" class="k-button btn withIcon green btnAdd" data-bind="events: { click: openAddItemDialog }">Добавить</button>
+                    </div>
+                    <label class="nomargin">Связанные элементы:</label>
+                    <div class="kendoGrid classifier"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

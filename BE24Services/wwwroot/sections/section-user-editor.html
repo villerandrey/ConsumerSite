@@ -1,0 +1,106 @@
+﻿<div id="blockEditUserProfile" style="display: none" class="grid_main_section">
+    <div id="editorUser">
+        <div class="top_bar no_height">
+            <div class="form_section">
+                <div class="central-content_title-sprav widtauto">Редактирование профиля пользователя</div>
+                <div class="buttons_form_top">
+                    <button color="green" class="k-button btnChangePassword btn withIcon green" data-bind="events: { click: changePassword }">Изменить пароль</button>
+                    <button color="green" class="k-button btnSave btn withIcon green" data-bind="events: { click: save }">Сохранить</button>
+                    <button color="green" class="k-button btnBack btn withIcon blue" data-bind="events: { click: cancel }">Обратно</button>
+                </div>
+            </div>
+        </div>
+        <div class="editor_user_section">
+            <div class="common_data">
+                <div class="form_section" style="padding-top: 15px">
+                    <div class="line_d">
+                        <label for="user_family">Имя:</label>
+                        <input type="text"
+                               id="user_name"
+                               name="user_name"
+                               placeholder="Имя"
+                               data-message="<b>Имя</b> - поле должно быть заполнено"
+                               class="k-textbox"
+                               maxlength="100"
+                               data-bind="value: firstName" />
+                    </div>
+                    <div class="line_d">
+                        <label for="user_family">Фамилия:</label>
+                        <input type="text"
+                               id="user_family"
+                               name="user_family"
+                               placeholder="Фамилия"
+                               data-message="<b>Фамилия</b> - поле должно быть заполнено"
+                               class="k-textbox"
+                               maxlength="100"
+                               data-bind="value: lastName" />
+                    </div>
+                    <div class="line_d">
+                        <label for="user_email">E-mail:</label>
+                        <input type="email"
+                               id="user_email"
+                               name="user_email"
+                               class="k-textbox"
+                               placeholder="myname@example.net"
+                               data-email-msg="<b>E-mail</b> - неверный формат"
+                               data-message="<b>E-mail</b> - поле должно быть заполнено"
+                               maxlength="100"
+                               data-bind="value: email" />
+                    </div>
+                    <div class="line_with_btn">
+                        <div class="line_d">
+                            <label for="user_tarif">Текущий тариф:</label>
+                            <input type="text"
+                                   id="user_tarif"
+                                   readonly="readonly"
+                                   name="user_email"
+                                   class="k-textbox"
+                                   maxlength="100"
+                                   data-bind="value: tarifDescription" />
+                        </div>           
+                        <div class="buttons_form_top">
+                            <button color="green" class="k-button btnChangeTarif btn withIcon green" data-bind="events: { click: changeTarif }">Изменить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="change_password" style="display:none">
+                <div class="form_section">
+                    <div class="line_d">
+                        <label for="user_oldpassword">Старый пароль:</label>
+                        <input type="password"
+                               id="user_oldpassword"
+                               name="user_password1"
+                               placeholder="Старый пароль"
+                               data-message="<b>Старый пароль</b> - поле должно быть заполнено и содержать не менее 7 символов"
+                               class="k-textbox"
+                               maxlength="100"
+                               data-bind="value: oldpassword" />
+                    </div>
+                    <div class="line_d">
+                        <label for="user_password1">Пароль:</label>
+                        <input type="password"
+                               id="user_password1"
+                               name="user_password1"
+                               placeholder="Пароль"
+                               data-message="<b>Пароль</b> - поле должно содержать не менее 7 символов и не совпадать с логином пользователя"
+                               class="k-textbox"
+                               maxlength="100"
+                               data-bind="value: password1" />
+                    </div>
+                    <div class="line_d">
+                        <label for="user_password2">Подтверждение пароля:</label>
+                        <input type="password"
+                               id="user_password2"
+                               name="user_password2"
+                               placeholder="Пароль"
+                               data-message="<b>Подтверждение пароля</b> - значение должно совпадать с паролем"
+                               class="k-textbox"
+                               maxlength="100"
+                               data-bind="value: password2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,408 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Business Expert 24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="lib/moment.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+
+
+    <!-- Шаблон таблицы с содержимым классификаторов -->
+    <!-- ******************************************* -->
+    <script type="text/x-template" id="grid-classifier-template">
+        <div class="table_container">
+            <table>
+            <thead>
+                 <tr>
+                     <th><div   @click="sortBy('id')"
+                                :class="{ active: sortKey == 'id' }">
+                         ID
+                         <span class="arrow" :class="sortOrders['id'] > 0 ? 'asc' : 'dsc'"></span>
+                         </div>
+                     </th>
+                     <th><div>Наименование</div></th>
+                     <th><div>Код</div></th>
+                     <th><div>Комментарий</div></th>
+                     <th><div><div class="icon_th"></div></div></th>
+                 </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData">
+                    <td v-for="key in columns">
+                        <div v-html="entry[key]"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </script>
+
+    <!-- Шаблон таблицы с компаниями -->
+    <!-- *************************** -->
+<script type="text/x-template" id="grid-company-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                       <div>ID</div>
+                    </th>
+                    <th><div @click="sortBy('shortname')"
+                        :class="{ active: sortKey == 'shortname' }">
+                        Краткое наименование
+                        <span class="arrow" :class="sortOrders['shortname'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th><div>Полное наименование</div></th>
+                    <th><div>Отрасль</div></th>
+                    <th><div>Регион</div></th>
+                    <th><div>Юр. адрес</div></th>
+                    <th><div>Факт адрес</div></th>
+                    <th><div>ОГРН</div></th>
+                    <th><div>ИНН</div></th>
+                    <th><div>КПП</div></th>
+                    <th><div>ОКПО</div></th>
+                    <th><div>ФИО руководителя</div></th>
+                    <th><div>ФИО собственников</div></th>
+                    <th><div @click="sortBy('systemcode')"
+                        :class="{ active: sortKey == 'systemcode' }">
+                        Код
+                        <span class="arrow" :class="sortOrders['systemcode'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th><div><div class="icon_th"></div></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData">
+                    <td v-for="key in columns">
+                        <div v-html="entry[key]"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+</script>
+
+    <!-- Шаблон таблицы с тезисами -->
+    <!-- *************************** -->
+
+<script type="text/x-template" id="grid-tezis-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <!-- <th v-for="key in columns"
+                      @click="sortBy(key)"
+                      :class="{ active: sortKey == key }">
+                      {{ key | capitalize }}
+                      <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                    </th> -->
+                    <th>
+                        <div @click="sortBy('systemcode')"
+                             :class="{ active: sortKey == 'systemcode' }">
+                            Создано
+                            <span class="arrow" :class="sortOrders['systemcode'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th><div>Категория</div></th>
+                    <th><div>Индикатор</div></th>
+                    <th><div>Отрасль компании</div></th>
+                    <th><div>Компания</div></th>
+                    <th><div>Регион компании</div></th>
+                    <th><div>Тема</div></th>
+                    <th><div>Эксперт</div></th>
+                    <th><div>Раздел</div></th>
+                    <th><div>Страна проекта</div></th>
+                    <th><div>Создал</div></th>
+                    <th><div>Дата изм.</div></th>
+                    <th><div>Изменил</div></th>
+                    <th><div>ID</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData">
+                    <td v-for="key in columns"><div v-html="entry[key]"></div></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+</script>
+
+    <!-- Шаблон добавления / редактирования -->
+    <!-- *************************** -->
+    <script type="text/x-template" id="edit-inputs-template">
+        <div>
+            <div class="line-input">
+                <div class="title-input">id:</div>
+                <!--<div class="value-input"><div v-for="(item, index) in data">{{item}}</div></div>-->
+                <div class="value-input"><div>{{data.id}}</div></div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Дата:</div>
+                <div class="value-input">{{data.data}}</div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Пользователь:</div>
+                <div class="value-input">{{data.user}}</div>
+            </div>
+            <div class="line-input vertical-title">
+                <div class="title-input">Формулировка тезиса:</div>
+                <textarea class="textarea"></textarea>
+            </div>
+            <div class="line-input">
+                <div class="title-input">SWOT индикатор:</div>
+                <div class="autocomplit">
+                    <div class="btn_select"></div>
+                    <input class="input" type="text" />
+                    <ul class="list_panel">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Категория:</div>
+                <div class="autocomplit">
+                    <div class="btn_select"></div>
+                    <input class="input" type="text" />
+                    <ul class="list_panel">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line-input point-type">
+                <div class="title-input">Компания:</div>
+                <div class="object-input">
+                    <div class="btn_object"></div>
+                    <input class="input" type="text" />
+                </div>
+            </div>
+            <div class="line-input otrasl">
+                <div class="title-input">Отрасль:</div>
+                <div class="object-input">
+                    <div class="btn_object"></div>
+                    <input class="input" type="text" />
+                </div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Рынок:</div>
+                <div class="object-input">
+                    <div class="btn_object"></div>
+                    <input class="input" type="text" />
+                </div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Спрос:</div>
+                <div class="object-input">
+                    <div class="btn_object"></div>
+                    <input class="input" type="text" />
+                </div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Раздел:</div>
+                <div class="autocomplit">
+                    <div class="btn_select"></div>
+                    <input class="input" type="text" />
+                    <ul class="list_panel">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Параметр:</div>
+                <div class="autocomplit">
+                    <div class="btn_select"></div>
+                    <input class="input" type="text" />
+                    <ul class="list_panel">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                        <li>2</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line-input">
+                <div class="title-input">Гео:</div>
+                <input type="text" class="input" />
+            </div>
+        </div>
+    </script>
+
+</head>
+<body>
+<section class="wrap">
+    <section class="work">
+        <section class="header">
+            <a href="/" class="header_logo"></a>
+            <div class="header_title">Business Expert 24</div>
+            <ul class="header_buttons-block">
+                <li class="user"></li>
+                <li class="logout"></li>
+            </ul>
+        </section>
+        <section class="sidebar">
+            <div id="mainMenu">
+                <div class="sidebar_title">Данные</div>
+                <ul class="sidebar_menu" id="data_list">
+                    <li>
+                        <a href="#" id="tezis_list">
+                            <span class="listItem">Тезисы</span>
+                        </a>
+                        <button class="add_list" id="add_edit_Tezis" title="Добавить тезисы"></button>
+                    </li>
+                    <li>
+                        <a href="#" id="company_list">
+                            <span class="listItem">Компании</span>
+                        </a>
+                        <button class="add_list" title="Добавить кампанию"></button>
+                    </li>
+                    <li>
+                        <span class="listItem">Новости</span>
+                        <button class="add_list" title="Добавить новость"></button>
+                    </li>
+                </ul>
+                <div class="sidebar_title">Классификаторы</div>
+
+                <ul id="classifier_list" class="sidebar_menu">
+                    <li v-for="item in items">
+                        <div class="listItem" v-on:click="select(item.classifierId, $event)" style="cursor: pointer">{{ item.discription }}</div>
+                    </li>
+                </ul>
+
+                <div class="sidebar_title">Администрирование</div>
+                <ul class="sidebar_menu">
+                    <li>
+                        <span>Пользователи</span>
+                    </li>
+                    <li>
+                        <span>Права доступа</span>
+                    </li>
+                    <li>
+                        <span>Роли</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="central-content">
+            <div id="blockClassifier" class="grid_main_section">
+                <div id="gridClassifier" class="grid_section">
+                    <div class="top_bar">
+                        <div id="mainClassifierHeader" class="central-content_title-sprav">Отрасли</div>
+                        <div class="central-content_header-filters">
+                            <button id="btn_plus1" class="btn_plus">Добавить</button>
+                            <div class="central-content_header-filters_serch_input">
+                                <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                            </div>
+                            <div class="checkbox">
+                                <input id="check1" type="checkbox" name="check" value="check1" checked="checked" />
+                                <label for="check1">Показать удаленные</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table_section main">
+                        <grid-classifier :data="gridData"
+                                         :columns="gridColumns"
+                                         :filter-key="searchQuery">
+                        </grid-classifier>
+                    </div>
+                </div>
+            </div>
+            <div id="blockCompany" style="display: none" class="grid_main_section">
+                <div id="gridCompany" class="grid_section">
+                    <div class="top_bar">
+                        <div class="central-content_title-sprav">Компании</div>
+                        <div class="central-content_header-filters">
+                            <button id="btn_plus2" class="btn_plus">Добавить</button>
+                            <div class="central-content_header-filters_serch_input">
+                                <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                            </div>
+                            <div class="checkbox">
+                                <input id="check2" type="checkbox" name="check" value="check2" />
+                                <label for="check2">Показать удаленные</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table_section company">
+                        <grid-company :data="gridData"
+                                      :columns="gridColumns"
+                                      :filter-key="searchQuery">
+                        </grid-company>
+                    </div>
+                </div>
+            </div>
+
+            <div id="blockTezis" style="display: none" class="grid_main_section">
+                <div id="gridTezis" class="grid_section">
+                    <div class="top_bar">
+                        <div class="central-content_title-sprav">Компании</div>
+                        <div class="central-content_header-filters">
+                            <button id="btn_plus3" class="btn_plus">Добавить</button>
+                            <div class="central-content_header-filters_serch_input">
+                                <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                            </div>
+                            <div class="checkbox">
+                                <input id="check3" type="checkbox" name="check" value="check3" />
+                                <label for="check3">Показать удаленные</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table_section tezis">
+                        <grid-tezis :data="gridData"
+                                      :columns="gridColumns"
+                                      :filter-key="searchQuery">
+                        </grid-tezis>
+                    </div>
+                </div>
+            </div>
+            <div id="blockEdit" style="display: none" class="grid_main_section">
+                <div id="editSection" class="grid_section">
+                    <div class="top_bar">
+                        <div class="half-top-bar">
+                            <div class="central-content_title-sprav">Добавление / редактирование тезиса</div>
+                            <ul class="rules-buttons">
+                                <li class="cancel">Отмена</li>
+                                <li class="save">Сохранить</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-inputs">
+                        <edit-inputs :data="editData"></edit-inputs>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sidebar right"></section>
+    </section>
+</section>
+</body>
+</html>

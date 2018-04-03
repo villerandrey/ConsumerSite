@@ -1,0 +1,54 @@
+﻿<script type="text/x-template" id="grid-newspage-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th><div>Дата/время</div></th>
+                    <th>
+                        <div @click="sortBy('createdByUserName')"
+                             :class="{ active: sortKey == 'createdByUserName' }">
+                            Пользователь
+                            <span class="arrow" :class="sortOrders['createdByUserName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div @click="sortBy('thesisText')"
+                             :class="{ active: sortKey == 'thesisText' }">
+                            Текст новости
+                            <span class="arrow" :class="sortOrders['thesisText'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('files')"
+                             :class="{ active: sortKey == 'files' }">
+                            Файлы
+                            <span class="arrow" :class="sortOrders['files'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('tezisFields')"
+                             :class="{ active: sortKey == 'tezisFields' }">
+                            Тезисы
+                            <span class="arrow" :class="sortOrders['tezisFields'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('id')"
+                             :class="{ active: sortKey == 'id' }">
+                            ID
+                            <span class="arrow" :class="sortOrders['id'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th><div>Действие</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData" @click="selectEntry(entry)" style="cursor: pointer">
+                    <td v-for="key in columns">
+                        <div v-html="entry[key]"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

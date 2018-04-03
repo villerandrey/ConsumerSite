@@ -1,0 +1,52 @@
+﻿@using BE24Services
+@model BE24Services.Model.RememberPasswordModel
+
+<div class="login_form" id="formLogin">
+    <div class="login_section" style="background: url(/images/logo.jpg) no-repeat top center;">
+        <form id="formChangeUserPassword" method="post" asp-controller="Security" asp-action="ChangeFogPassword" class="form">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="title_form">Изменить пароль</div>
+            <div class="inputs_form">
+                <div class="line_input">
+                    <input type="hidden" id="id" name="id" value="@Model.UserId" />
+                    <label for="pass">Пароль:</label>
+                    <input type="password"
+                           id="pass"
+                           name="pass"
+                           placeholder="Пароль"
+                           data-message="Поле должно содержать не менее 7 символов"
+                           class="k-textbox"
+                           maxlength="100"
+                           data-bind="value: pass" />
+                </div>
+                <div class="line_input">
+                    <label for="reg_password2">Подтверждение пароля:</label>
+                    <input type="password"
+                           id="reg_password2"
+                           name="reg_password2"
+                           placeholder="Пароль"
+                           data-message="Значение должно совпадать с паролем"
+                           class="k-textbox"
+                           maxlength="100"
+                           data-bind="value: password2" />
+                </div>
+                <input type="image" id="reg_image" src="@Url.Action("Image", "Home")" alt="Click for refresh" style="float: left; width: 90px;" />
+                <div class="line_input">
+                    <label for="cacpture">Введите текст с картинки:</label>
+                    <input type="text"
+                           id="cacpture"
+                           name="cacpture"
+                           placeholder="Текст с картинки"
+                           data-message="Это обязательное поле"
+                           class="k-textbox"
+                           maxlength="100"
+                           data-bind="value: cacpture" />
+                </div>
+                <button color="green" class="btn_login" data-bind="events: { click: send }">Сохранить</button>
+                <div class="buttons_form_top" style="padding-top: 0px">
+                    <span>@Model.Message</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

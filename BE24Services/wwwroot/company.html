@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Business Expert 24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="js/material.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="js/api.js"></script>
+    <script type="text/x-template" id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <!-- <th v-for="key in columns"
+                      @click="sortBy(key)"
+                      :class="{ active: sortKey == key }">
+                      {{ key | capitalize }}
+                      <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                    </th> -->
+                    <th>
+                        ID
+                    </th>
+                    <th @click="sortBy('systemcode')"
+                        :class="{ active: sortKey == 'systemcode' }">
+                        Код
+                        <span class="arrow" :class="sortOrders['systemcode'] > 0 ? 'asc' : 'dsc'"></span>
+                    </th>
+                    <th @click="sortBy('shortname')"
+                        :class="{ active: sortKey == 'shortname' }">
+                        Краткое наименование 
+                        <span class="arrow" :class="sortOrders['shortname'] > 0 ? 'asc' : 'dsc'"></span>
+                    </th>
+                    <th>
+                        Полное наименование
+                    </th>
+                    <th>
+                        Отрасль
+                    </th>
+                    <th>
+                        Регион
+                    </th>
+                    <th>
+                        Юр. адрес
+                    </th>
+                    <th>
+                        Факт адрес
+                    </th>
+                    <th>
+                        ОГРН
+                    </th>
+                    <th>
+                        ИНН
+                    </th>
+                    <th>
+                        КПП
+                    </th>
+                    <th>
+                        ОКПО
+                    </th>
+                    <th>
+                        ФИО руководителя
+                    </th>
+                    <th>
+                        ФИО собственников
+                    </th>
+                    <th>
+                        <div class="icon_th"></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData">
+                    <td v-for="key in columns" v-html="entry[key]">
+                        <!-- {{entry[key]}} -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+</head>
+<body>
+    <section class="wrap">
+        <section class="work">
+            <section class="header">
+                <a href="/" class="header_logo"></a>
+                <div class="header_title">Business Expert 24</div>
+                <ul class="header_buttons-block">
+                    <li class="user"></li>
+                    <li class="logout"></li>
+                </ul>
+            </section>
+            <section class="sidebar">
+                <div class="sidebar_title">Данные</div>
+                <ul class="sidebar_menu">
+                    <li><span>Тезисы</span>
+                        <a href="/tezis.html"><button class="add_list" title="Добавить кампанию"></button></a>
+                    </li>
+                    <li class="active">
+                        <span>Компании</span>
+                        <button class="add_list" title="Добавить кампанию"></button>
+                    </li>
+                    <li>
+                        <span>Новости</span>
+                        <button class="add_list" title="Добавить новость"></button>
+                    </li>
+                </ul>
+                <div class="sidebar_title">Классификаторы</div>
+                <ul class="sidebar_menu">
+                    <li><span>Отрасли</span></li>
+                    <li><span>Рынки</span></li>
+                    <li><span>Спрос</span></li>
+                    <li><span>Параметры</span></li>
+                </ul>
+                <div class="sidebar_title">Администрирование</div>
+                <ul class="sidebar_menu">
+                    <li><span>Пользователи</span></li>
+                    <li><span>Права доступа</span></li>
+                    <li><span>Роли</span></li>
+                </ul>
+            </section>
+            <section class="central-content">
+                <div id="demo-company">
+                    <div class="top_bar">
+                        <div class="central-content_title-sprav">Компании</div>
+                        <div class="central-content_header-filters">
+                            <button id="btn_plus">Добавить</button>
+                            <div class="central-content_header-filters_serch_input">
+                                <input class="serch_input" type="text" v-model="searchQuery" placeholder="Поиск" />
+                            </div>
+                            <div class="checkbox">
+                                <input id="check1" type="checkbox" name="check" value="check1" checked="checked" />
+                                <label for="check1">Показать удаленные</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table_section company">
+                        <demo-grid :data="gridData"
+                                   :columns="gridColumns"
+                                   :filter-key="searchQuery">
+                        </demo-grid>
+                    </div>
+                </div>
+            </section>
+            <section class="sidebar right"></section>
+        </section>
+    </section>
+</body>
+</html>

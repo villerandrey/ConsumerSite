@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="1">
+      <BusinessObject Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>BusinessObject</Alias>
+        <BusinessObjects isList="true" count="0" />
+        <Category>buisnes1</Category>
+        <Columns isList="true" count="1">
+          <value>createdate,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Guid>a46966d3cbfe48e496675eda6333590f</Guid>
+        <Name>BusinessObject</Name>
+      </BusinessObject>
+    </BusinessObjects>
+    <Databases isList="true" count="1">
+      <Be24Postgr Ref="3" type="Stimulsoft.Report.Dictionary.StiPostgreSQLDatabase" isKey="true">
+        <Alias>Be24Postgr</Alias>
+        <ConnectionStringEncrypted>49RxCUZMWt1sW6HAxADhbtXIm+vGSzHIYhmh2GoRYnuEcGnCzUvZyMwTpGF3EKRixxrdSFUDYYzMTbgIYwh1Yo3y0ctiBfOkaR2gmEkBO2OC</ConnectionStringEncrypted>
+        <Name>Be24Postgr</Name>
+      </Be24Postgr>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <ds_theses Ref="4" type="Stimulsoft.Report.Dictionary.StiPostgreSQLSource" isKey="true">
+        <Alias>ds_theses</Alias>
+        <Columns isList="true" count="29">
+          <value>categoryid,System.String</value>
+          <value>catname,System.String</value>
+          <value>companyregion,System.String</value>
+          <value>companysector,System.String</value>
+          <value>continentid,System.String</value>
+          <value>countryid,System.String</value>
+          <value>countryname,System.String</value>
+          <value>countryregion_id,System.String</value>
+          <value>createdate,System.String</value>
+          <value>createdbyuser,System.String</value>
+          <value>id,System.String</value>
+          <value>macroregionid,System.String</value>
+          <value>newsid,System.String</value>
+          <value>objecyid,System.String</value>
+          <value>objname,System.String</value>
+          <value>razdel,System.String</value>
+          <value>removed,System.String</value>
+          <value>sectionid,System.String</value>
+          <value>sectname,System.String</value>
+          <value>sp_report_thesis_business042,System.String</value>
+          <value>swot_indicator,System.String</value>
+          <value>swotcode,System.String</value>
+          <value>swotname,System.String</value>
+          <value>tema,System.String</value>
+          <value>thesisindex_id,System.String</value>
+          <value>thesistext,System.String</value>
+          <value>thesistext,System.String</value>
+          <value>updatedate,System.String</value>
+          <value>updatedbyuser,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>ds_theses</Name>
+        <NameInSource>Be24Postgr</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT * from sp_report_thesis_business042_1(   dates,    datef,    catid,    objid);</SqlCommand>
+      </ds_theses>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="5">
+      <value>,dataf,dataf,,System.String,,False,False,False,False</value>
+      <value>,datas,datas,,System.String,,False,False,False,False</value>
+      <value>,objcaption,objcaption,,System.String,,False,False,False,False</value>
+      <value>,objname,objname,,System.String,,False,False,False,False</value>
+      <value>,titlecaption,titlecaption,,System.String,,False,False,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <ReportTitleBand1 Ref="6" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,1.6</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text1 Ref="7" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,1,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>BUSINESS отчет</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="8" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>20,1,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Период отчета:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="9" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>22.6,1,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{datas}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="10" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>24.4,1,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>по</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="11" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>26,1,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{dataf}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="12" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>3.6,1,9,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{titlecaption}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="13" type="Text" isKey="true">
+              <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>22.4,0,5.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Business EXPERT 24</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </ReportTitleBand1>
+        <Headerds_theses Ref="14" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.8,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <Headerds_theses_createdate Ref="15" type="Text" isKey="true">
+              <Border>All;[110:110:110];1;Solid;False;4;Black;True</Border>
+              <Brush>[210:210:210]</Brush>
+              <ClientRectangle>0,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Headerds_theses_createdate</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>Создано</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Headerds_theses_createdate>
+            <Headerds_theses_objname Ref="16" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;[110:110:110];1;Solid;False;4;Black;True</Border>
+              <Brush>[210:210:210]</Brush>
+              <ClientRectangle>1.8,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Headerds_theses_objname</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{objcaption}</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Headerds_theses_objname>
+            <Headerds_theses_thesistext Ref="17" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;[110:110:110];1;Solid;False;4;Black;True</Border>
+              <Brush>[210:210:210]</Brush>
+              <ClientRectangle>4.2,0,18.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Headerds_theses_thesistext</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>Кратко</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Headerds_theses_thesistext>
+            <Headerds_theses_sectname Ref="18" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;[110:110:110];1;Solid;False;4;Black;True</Border>
+              <Brush>[210:210:210]</Brush>
+              <ClientRectangle>23,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Headerds_theses_sectname</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>Категория</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Headerds_theses_sectname>
+            <Headerds_theses_countryname Ref="19" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;[110:110:110];1;Solid;False;4;Black;True</Border>
+              <Brush>[210:210:210]</Brush>
+              <ClientRectangle>25.4,0,2.3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Headerds_theses_countryname</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>Страна проекта</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Headerds_theses_countryname>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>Headerds_theses</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <PrintIfEmpty>True</PrintIfEmpty>
+        </Headerds_theses>
+        <Datads_theses Ref="20" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4.4,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <Datads_theses_createdate Ref="21" type="Text" isKey="true">
+              <Border>All;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Datads_theses_createdate</Name>
+              <Page isRef="5" />
+              <Parent isRef="20" />
+              <Text>{ds_theses.createdate}</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,Trimming=Character,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Datads_theses_createdate>
+            <Datads_theses_objname Ref="22" type="Text" isKey="true">
+              <Border>All;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Datads_theses_objname</Name>
+              <Page isRef="5" />
+              <Parent isRef="20" />
+              <Text>{ds_theses.objname}</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,Trimming=Character,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Datads_theses_objname>
+            <Datads_theses_thesistext Ref="23" type="Text" isKey="true">
+              <Border>All;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,0,18.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>1,1,1,1</Margins>
+              <Name>Datads_theses_thesistext</Name>
+              <Page isRef="5" />
+              <Parent isRef="20" />
+              <Text>{ds_theses.thesistext}</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,Trimming=Character,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Datads_theses_thesistext>
+            <Datads_theses_sectname Ref="24" type="Text" isKey="true">
+              <Border>All;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Datads_theses_sectname</Name>
+              <Page isRef="5" />
+              <Parent isRef="20" />
+              <Text>{ds_theses.sectname}</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,Trimming=Character,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Datads_theses_sectname>
+            <Datads_theses_countryname Ref="25" type="Text" isKey="true">
+              <Border>All;[110:110:110];1;Solid;False;4;[0:0:0]</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>25.4,0,2.3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Datads_theses_countryname</Name>
+              <Page isRef="5" />
+              <Parent isRef="20" />
+              <Text>{ds_theses.countryname}</Text>
+              <TextBrush>[10:10:10]</TextBrush>
+              <TextOptions>,,,Trimming=Character,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Datads_theses_countryname>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>[Not Assigned]</DataRelationName>
+          <DataSourceName>ds_theses</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>Datads_theses</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </Datads_theses>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>2367f599d02469e8e0ef82d2ef11ad5b</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="26" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="27" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>12/19/2017 4:54:10 PM</ReportChanged>
+  <ReportCreated>1/1/1970 12:00:00 AM</ReportCreated>
+  <ReportFile>D:\DMSol\dm24\reports\Busn042_24_6_2.mrt</ReportFile>
+  <ReportGuid>1259c7609b974691a9f744d1a1916fea</ReportGuid>
+  <ReportImage isNull="true" />
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2017.2.4.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="1">
+    <Style1 Ref="28" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+      <Brush>Transparent</Brush>
+      <Conditions isList="true" count="0" />
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>[0:0:0]</TextBrush>
+    </Style1>
+  </Styles>
+</StiSerializer>

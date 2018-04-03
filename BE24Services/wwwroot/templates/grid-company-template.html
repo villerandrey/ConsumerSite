@@ -1,0 +1,116 @@
+﻿<script type="text/x-template" id="grid-company-template">
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <div @click="sortBy('id')"
+                             :class="{ active: sortKey == 'id' }">
+                            ID
+                            <span class="arrow" :class="sortOrders['id'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div @click="sortBy('shortname')"
+                             :class="{ active: sortKey == 'shortname' }">
+                            Краткое наименование
+                            <span class="arrow" :class="sortOrders['shortname'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div @click="sortBy('fullname')"
+                             :class="{ active: sortKey == 'fullname' }">
+                            Полное наименование
+                            <span class="arrow" :class="sortOrders['fullname'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('sectorName')"
+                             :class="{ active: sortKey == 'sectorName' }">
+                            Отрасль
+                            <span class="arrow" :class="sortOrders['sectorName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('regionrfName')"
+                             :class="{ active: sortKey == 'regionrfName' }">
+                            Регион
+                            <span class="arrow" :class="sortOrders['regionrfName'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                   
+                    <th>
+                        <div @click="sortBy('factaddress')"
+                             :class="{ active: sortKey == 'factaddress' }">
+                            Юр. адрес
+                            <span class="arrow" :class="sortOrders['factaddress'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('legaladdress')"
+                             :class="{ active: sortKey == 'legaladdress' }">
+                            Факт адрес
+                            <span class="arrow" :class="sortOrders['legaladdress'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('ogrn')"
+                             :class="{ active: sortKey == 'ogrn' }">
+                            ОГРН
+                            <span class="arrow" :class="sortOrders['ogrn'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('inn')"
+                             :class="{ active: sortKey == 'inn' }">
+                            ИНН
+                            <span class="arrow" :class="sortOrders['inn'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('kpp')"
+                             :class="{ active: sortKey == 'kpp' }">
+                            КПП
+                            <span class="arrow" :class="sortOrders['kpp'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('okpo')"
+                             :class="{ active: sortKey == 'okpo' }">
+                            ОКПО
+                            <span class="arrow" :class="sortOrders['okpo'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('managersNames')"
+                             :class="{ active: sortKey == 'managersNames' }">
+                            ФИО руководителя
+                            <span class="arrow" :class="sortOrders['managersNames'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>                    
+                    <th>
+                        <div @click="sortBy('ownersNames')"
+                             :class="{ active: sortKey == 'ownersNames' }">
+                            ФИО собственников
+                            <span class="arrow" :class="sortOrders['ownersNames'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div @click="sortBy('systemcode')"
+                             :class="{ active: sortKey == 'systemcode' }">
+                            Код
+                            <span class="arrow" :class="sortOrders['systemcode'] > 0 ? 'asc' : 'dsc'"></span>
+                        </div>
+                    </th>
+                    <th><div><div class="icon_th"></div></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData" @click="selectEntry(entry)" style="cursor: pointer">
+                    <td v-for="key in columns">
+                        <div v-html="entry[key]"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
