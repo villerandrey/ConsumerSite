@@ -12,7 +12,7 @@ namespace Be24Types
         {
         }
     }
-
+     
 
     public class GeoDescription
     {
